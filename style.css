@@ -1,0 +1,243 @@
+/* 基本重置與全域設定 */
+:root {
+    --nav-bg: #ffffff;
+    --nav-text: #333333;
+    --nav-hover: #1b5cb8;
+    --logo-color: #1b5cb8;
+    --banner-bg-start: #1e5ab8;   /* 相較於原先的綠色，在此改為跟圖片類似的漸層深藍色 */
+    --banner-bg-end: #3682de;     /* 漸層淺藍色 */
+    --text-white: #ffffff;
+    --badge-bg: rgba(255, 255, 255, 0.4);
+    --badge-text: #0b387b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background-color: #f0f4f4; /* 取消搜尋框後，給背景一個極淡的灰綠色 */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* 頂部導航列 */
+.top-nav {
+    background-color: var(--nav-bg);
+    width: 100%;
+    height: 60px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+/* 漢堡/箭頭選單按鈕 (預設隱藏) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--logo-color);
+    cursor: pointer;
+    padding: 4px;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    color: var(--logo-color);
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--nav-text);
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--nav-hover);
+}
+
+.nav-right .register-btn {
+    text-decoration: none;
+    color: var(--nav-hover);
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: transform 0.2s ease;
+}
+
+.nav-right .register-btn:hover {
+    transform: translateY(-1px);
+}
+
+/* 橫幅主視覺區塊 (Banner) */
+.banner {
+    width: 100%;
+    height: 480px; /* 原有搜尋框佔空間，這邊設定較為寬闊的視覺高度 */
+    background: linear-gradient(135deg, var(--banner-bg-start), var(--banner-bg-end));
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* 底部加一點深色邊框增加層次感 */
+    border-bottom: 5px solid rgba(0, 0, 0, 0.1); 
+}
+
+/* 內容層級較高，確保不被裝飾圖片遮住 */
+.banner-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 「RO仙境傳說Online」小標籤 */
+.badge {
+    background-color: var(--badge-bg);
+    color: var(--badge-text);
+    padding: 6px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    backdrop-filter: blur(4px); /* 毛玻璃質感 */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* 主標題 */
+.main-title {
+    color: var(--text-white);
+    font-size: 56px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    margin-bottom: 30px;
+}
+
+/* RWC 預留內容區塊 */
+.rwc-placeholder {
+    margin-top: 10px;
+    padding: 12px 24px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px dashed rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* 圖片裝飾佔位區 - 準備給你放角色的位置 */
+.decoration {
+    position: absolute;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    z-index: 1; /* 在文字後方 */
+    /* 準備換圖片時可以直接加上 background-image 並拿掉 border */
+}
+
+/* 左側主教/咒術的角色等位置 */
+.left-char {
+    width: 350px;
+    height: 480px;
+    bottom: -20px;
+    left: 8%;
+}
+
+/* 右側飄浮的帽子裝備位置 */
+.right-hat {
+    width: 200px;
+    height: 200px;
+    top: 20%;
+    right: 12%;
+}
+
+/* 響應式設計：因應各種螢幕大小 */
+@media screen and (max-width: 1024px) {
+    .main-title { font-size: 42px; }
+    .decoration { display: none; /* 平板與手機時隱藏裝飾圖案以免擋住字 */ }
+}
+
+@media screen and (max-width: 768px) {
+    /* 改變導航容器讓 logo 與按鈕分離，並把選單獨立出來 */
+    .nav-container {
+        flex-wrap: wrap;
+        padding: 0 15px;
+    }
+    
+    .nav-left {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .menu-toggle {
+        display: flex; /* 在手機版顯示切換箭頭 */
+    }
+
+    .nav-links { 
+        display: none; /* 手機版預設收合 */
+        width: 100%;
+        flex-direction: column;
+        background-color: var(--nav-bg);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10px 20px 20px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        gap: 15px;
+    }
+    
+    /* 點擊箭頭後附加 active 來顯示 */
+    .nav-links.active {
+        display: flex;
+    }
+
+    /* 將註冊按鈕移到原本的 nav-links 裡或是右上角，因空間有限這裡會隨著 nav-links 一起縮起，或根據排版另外處理 */
+    .nav-right {
+        position: absolute;
+        top: 15px;
+        right: 60px; /* 放在箭頭旁邊 */
+    }
+
+    .main-title { font-size: 32px; letter-spacing: 2px; }
+    .banner { height: 350px; }
+}
