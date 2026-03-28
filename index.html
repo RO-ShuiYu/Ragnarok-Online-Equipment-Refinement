@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RO 仙境傳說 - 裝備道具查詢平台</title>
-    <meta name="description" content="RO仙境傳說Online 裝備道具查詢平台">
+    <title>RO 仙境傳說</title>
+    <meta name="description" content="RO仙境傳說Online">
     <!-- 引入 Google Fonts 提升質感 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!-- 頂部導航列 -->
     <header class="top-nav">
@@ -21,7 +23,7 @@
                 <!-- 手機版選單箭頭切換鈕 -->
                 <button class="menu-toggle" aria-label="切換選單">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M6 9l6 6 6-6"/>
+                        <path d="M6 9l6 6 6-6" />
                     </svg>
                 </button>
                 <!-- 導航連結 -->
@@ -38,7 +40,8 @@
             <div class="nav-right">
                 <a href="#" class="register-btn">
                     <!-- 使用簡單的 SVG icon 代替圖片以節省資源 -->
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                         <circle cx="12" cy="7" r="4"></circle>
                     </svg>
@@ -62,7 +65,7 @@
         <div class="banner-content">
             <div class="badge">預留標籤</div>
             <h1 class="main-title">預留主標題</h1>
-            
+
             <!-- RWC 內容預留區 -->
             <div class="rwc-placeholder" id="rwc-section">
                 <!-- 未來可在此加入 RWC 相關的活動標語、小 Banner 或連結 -->
@@ -75,12 +78,12 @@
     <main class="main-content">
         <!-- 你提到後續會自己加進去，所以這邊暫留空白主體 -->
     </main>
-    
+
     <!-- 簡單的腳本來切換選單顯示 -->
     <script>
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
-        
+
         if (menuToggle && navLinks) {
             menuToggle.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
@@ -88,4 +91,5 @@
         }
     </script>
 </body>
+
 </html>
