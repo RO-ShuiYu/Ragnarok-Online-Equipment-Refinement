@@ -4,8 +4,10 @@
     --nav-text: #333333;
     --nav-hover: #1b5cb8;
     --logo-color: #1b5cb8;
-    --banner-bg-start: #1e5ab8;   /* 相較於原先的綠色，在此改為跟圖片類似的漸層深藍色 */
-    --banner-bg-end: #3682de;     /* 漸層淺藍色 */
+    --banner-bg-start: #1e5ab8;
+    /* 相較於原先的綠色，在此改為跟圖片類似的漸層深藍色 */
+    --banner-bg-end: #3682de;
+    /* 漸層淺藍色 */
     --text-white: #ffffff;
     --badge-bg: rgba(255, 255, 255, 0.4);
     --badge-text: #0b387b;
@@ -19,7 +21,8 @@
 
 body {
     font-family: 'Noto Sans TC', sans-serif;
-    background-color: #f0f4f4; /* 取消搜尋框後，給背景一個極淡的灰綠色 */
+    background-color: #f0f4f4;
+    /* 取消搜尋框後，給背景一個極淡的灰綠色 */
     color: #333;
     line-height: 1.6;
 }
@@ -104,15 +107,20 @@ body {
 /* 橫幅主視覺區塊 (Banner) */
 .banner {
     width: 100%;
-    height: 480px; /* 原有搜尋框佔空間，這邊設定較為寬闊的視覺高度 */
+    height: 270px;
+    /* 鎖死固定高度，確保每一頁的 Banner 背景徹底一致 */
+    padding-top: 30px;
     background: linear-gradient(135deg, var(--banner-bg-start), var(--banner-bg-end));
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    /* 底部加一點深色邊框增加層次感 */
-    border-bottom: 5px solid rgba(0, 0, 0, 0.1); 
+    align-items: flex-start;
+    /* 讓標題固定在上方對齊 */
+    overflow: visible;
+    /* 允許下方的 RWC 表格疊加並超出 Banner 背景，營造浮動感 */
+    border-bottom: 5px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 120px;
+    /* 為超出版面的表格預留空間 */
 }
 
 /* 內容層級較高，確保不被裝飾圖片遮住 */
@@ -134,7 +142,8 @@ body {
     font-size: 14px;
     font-weight: 700;
     margin-bottom: 16px;
-    backdrop-filter: blur(4px); /* 毛玻璃質感 */
+    backdrop-filter: blur(4px);
+    /* 毛玻璃質感 */
     border: 1px solid rgba(255, 255, 255, 0.5);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
@@ -146,12 +155,14 @@ body {
     font-weight: 700;
     letter-spacing: 4px;
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    margin-bottom: 30px;
+    margin-bottom: 5px;
+    /* 原本是 30px，縮小距離讓下方的區塊往上靠 */
 }
 
 /* RWC 預留內容區塊 */
 .rwc-placeholder {
-    margin-top: 10px;
+    margin-top: 5px;
+    /* 減少上方留白讓它更靠近標題 */
     padding: 12px 24px;
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px dashed rgba(255, 255, 255, 0.6);
@@ -159,6 +170,57 @@ body {
     color: rgba(255, 255, 255, 0.9);
     font-size: 14px;
     font-weight: 500;
+    width: 100%;
+    max-width: 1200px;
+    /* 放寬以容納左邊文字與右邊表格的雙欄排版 */
+    position: relative;
+    z-index: 20;
+}
+
+/* 當 RWC 區塊裡面有表格時，移除原本的虛線框以免視覺衝突 */
+.rwc-placeholder:has(.table-container) {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+/* 雙欄位排版：左邊描述文字，右邊表格 */
+.section-layout {
+    display: flex;
+    align-items: flex-start;
+    /* 讓左邊文字與右邊表格的頂部完美切齊 */
+    justify-content: center;
+    gap: 30px;
+    /* 確保左右有一定的留白 */
+    width: 100%;
+}
+
+/* 預留的描述文字區塊 (如同您的黑框要求) */
+.section-description {
+    flex: 0 0 280px;
+    /* 固定這塊文字區的寬度 */
+    background: rgba(255, 255, 255, 0.95);
+    padding: 24px;
+    border-radius: 12px;
+    border-left: 5px solid var(--logo-color);
+    /* 增添一點 RO 質感 */
+    box-shadow: 0 8px 24px rgba(27, 92, 184, 0.15);
+    text-align: left;
+    color: #1e293b;
+    /* 給它一點相對彈性空間才不會被長表格擠壓 */
+}
+
+.desc-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--logo-color);
+    margin-bottom: 10px;
+}
+
+.desc-text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #475569;
 }
 
 /* 圖片裝飾佔位區 - 準備給你放角色的位置 */
@@ -171,50 +233,60 @@ body {
     align-items: center;
     color: rgba(255, 255, 255, 0.5);
     font-size: 14px;
-    z-index: 1; /* 在文字後方 */
+    z-index: 1;
+    /* 在文字後方 */
     /* 準備換圖片時可以直接加上 background-image 並拿掉 border */
 }
 
 /* 左側主教/咒術的角色等位置 */
 .left-char {
-    width: 350px;
-    height: 480px;
-    bottom: -20px;
-    left: 8%;
+    width: 220px;
+    height: 300px;
+    bottom: -10px;
+    left: 5%;
 }
 
 /* 右側飄浮的帽子裝備位置 */
 .right-hat {
-    width: 200px;
-    height: 200px;
-    top: 20%;
-    right: 12%;
+    width: 120px;
+    height: 120px;
+    top: 10%;
+    right: 5%;
 }
 
 /* 響應式設計：因應各種螢幕大小 */
 @media screen and (max-width: 1024px) {
-    .main-title { font-size: 42px; }
-    .decoration { display: none; /* 平板與手機時隱藏裝飾圖案以免擋住字 */ }
+    .main-title {
+        font-size: 42px;
+    }
+
+    .decoration {
+        display: none;
+        /* 平板與手機時隱藏裝飾圖案以免擋住字 */
+    }
 }
 
 @media screen and (max-width: 768px) {
+
     /* 改變導航容器讓 logo 與按鈕分離，並把選單獨立出來 */
     .nav-container {
         flex-wrap: wrap;
         padding: 0 15px;
     }
-    
+
     .nav-left {
         width: 100%;
         justify-content: space-between;
     }
-    
+
     .menu-toggle {
-        display: flex; /* 在手機版顯示切換箭頭 */
+        display: flex;
+        /* 在手機版顯示切換箭頭 */
     }
 
-    .nav-links { 
-        display: none; /* 手機版預設收合 */
+    .nav-links {
+        display: none;
+        /* 手機版預設收合 */
         width: 100%;
         flex-direction: column;
         background-color: var(--nav-bg);
@@ -222,10 +294,10 @@ body {
         top: 60px;
         left: 0;
         padding: 10px 20px 20px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         gap: 15px;
     }
-    
+
     /* 點擊箭頭後附加 active 來顯示 */
     .nav-links.active {
         display: flex;
@@ -235,9 +307,625 @@ body {
     .nav-right {
         position: absolute;
         top: 15px;
-        right: 60px; /* 放在箭頭旁邊 */
+        right: 60px;
+        /* 放在箭頭旁邊 */
     }
 
-    .main-title { font-size: 32px; letter-spacing: 2px; }
-    .banner { height: 350px; }
+    .main-title {
+        font-size: 32px;
+        letter-spacing: 2px;
+    }
+
+    .banner {
+        height: 180px;
+        padding-top: 20px;
+    }
+
+    /* 手機板自動改為上下堆疊 */
+    .section-layout {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .section-description {
+        width: 100%;
+        flex: none;
+    }
+}
+
+/* --- RO 遊戲風格表格設計 (藍色系) --- */
+.main-content {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.table-container {
+    flex: 1;
+    /* 讓表格完整吃滿右側的剩餘空間 */
+    min-width: 0;
+    /* 防止小螢幕時大數字無極限擴張撐破佈局 */
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(27, 92, 184, 0.1);
+    /* 帶有一點藍色調的陰影 */
+    overflow: hidden;
+    border: 1px solid #e0e6ed;
+    margin-bottom: 40px;
+}
+
+.ro-table {
+    width: 100%;
+    table-layout: fixed;
+    /* 固定分配寬度，極大輸入數字時才不會讓表格上下左右瘋狂抖動 */
+    border-collapse: collapse;
+    text-align: center;
+}
+
+/* 分配各欄位的完美比例，並將「材料」靠左對齊、「總價」靠右對齊 */
+.ro-table th:nth-child(1),
+.ro-table td:nth-child(1) {
+    width: 25%;
+    text-align: center;
+    font-weight: 600;
+    padding: 12px;
+}
+
+.ro-table th:nth-child(2),
+.ro-table td:nth-child(2) {
+    width: 20%;
+    text-align: center;
+    padding: 12px;
+}
+
+.ro-table th:nth-child(3),
+.ro-table td:nth-child(3) {
+    width: 25%;
+    text-align: center;
+    padding: 12px;
+}
+
+.ro-table th:nth-child(4),
+.ro-table td:nth-child(4) {
+    width: 30%;
+    text-align: right;
+    padding-right: 24px;
+    padding-left: 12px;
+}
+
+.ro-table thead {
+    background: linear-gradient(135deg, var(--banner-bg-start), var(--banner-bg-end));
+    color: var(--text-white);
+}
+
+.ro-table th {
+    padding: 16px 20px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.ro-table th:last-child {
+    border-right: none;
+}
+
+.ro-table td {
+    padding: 16px 20px;
+    color: #334155;
+    font-size: 15px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+/* 斑馬紋設計 */
+.ro-table tbody tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+/* Hover 互動 */
+.ro-table tbody tr:hover {
+    background-color: #e2e8f0;
+    transition: background-color 0.2s ease;
+}
+
+/* 總價欄位強調顏色 */
+.ro-table td:last-child {
+    color: var(--logo-color);
+    font-weight: 800;
+    /* 給總價更重的粗體，對齊右側 */
+}
+
+/* 互動輸入框樣式 */
+.ro-table .ro-input {
+    width: 100%;
+    /* 不再鎖死 80px，而是自適應欄位寬度 */
+    max-width: 130px;
+    /* 超大數字防護 */
+    padding: 8px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    /* 放中間更清晰 */
+    outline: none;
+    transition: all 0.2s ease;
+    color: #1e293b;
+    font-family: inherit;
+    background-color: #ffffff;
+}
+
+.ro-table .ro-input:focus {
+    border-color: var(--logo-color);
+    box-shadow: 0 0 0 3px rgba(27, 92, 184, 0.15);
+}
+
+/* 動態新增/移除階段按鈕容器 */
+.add-tier-container {
+    text-align: center;
+    margin-top: 24px;
+    /* 調近一點 */
+    padding-bottom: 30px;
+}
+
+.ro-btn-add {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #ffffff;
+    color: var(--logo-color);
+    border: 2px dashed #cbd5e1;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(27, 92, 184, 0.05);
+}
+
+.ro-btn-add:hover {
+    background-color: #f1f5f9;
+    border-color: var(--logo-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(27, 92, 184, 0.15);
+}
+
+.ro-btn-add:active {
+    transform: translateY(1px);
+}
+
+/* 動態移除階段按鈕 */
+.ro-btn-remove {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #ffffff;
+    color: #ef4444;
+    /* 紅色 */
+    border: 2px dashed #fca5a5;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.05);
+}
+
+.ro-btn-remove:hover {
+    background-color: #fef2f2;
+    border-color: #ef4444;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(239, 68, 68, 0.15);
+}
+
+.ro-btn-remove:active {
+    transform: translateY(1px);
+}
+
+/* 固定數量欄位 (不可編輯) */
+.fixed-qty {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    pointer-events: none;
+    font-weight: 700;
+    color: #1e293b !important;
+    cursor: default;
+}
+
+/* --- 升階決策面板 (合成 vs 成品) --- */
+.tier-summary-panel {
+    display: flex;
+    align-items: center;
+    background-color: #f8fafc;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    border: 1px solid #e2e8f0;
+    gap: 20px;
+}
+
+.price-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.price-option label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.price-option input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--logo-color);
+    cursor: pointer;
+}
+
+.option-value.crafting-price {
+    color: var(--logo-color);
+    font-size: 18px;
+    font-weight: 700;
+    margin-left: 4px;
+}
+
+.finished-price-input {
+    width: 140px;
+    padding: 8px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 16px;
+    text-align: right;
+    color: #333;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.finished-price-input:focus {
+    outline: none;
+    border-color: var(--logo-color);
+    box-shadow: 0 0 0 3px rgba(27, 92, 184, 0.1);
+}
+
+.price-separator {
+    color: #94a3b8;
+    font-weight: 600;
+    font-size: 14px;
+    user-select: none;
+}
+
+@media (max-width: 768px) {
+    .tier-summary-panel {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .price-separator {
+        display: none;
+        /* 手機版不顯示中間的「或」 */
+    }
+}
+
+/* --- 綜合資訊首頁佈局 2.0 (不規則彈性排列) --- */
+.info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-top: 12px;
+}
+
+/* 頂層介紹 (橫向英雄大卡片) */
+.info-hero {
+    display: flex;
+    flex-direction: row;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 4px 20px rgba(27, 92, 184, 0.08);
+    border: 1px solid #e2e8f0;
+    align-items: center;
+    gap: 32px;
+}
+
+/* 英雄圖片與裝飾圖片預留區 */
+.hero-image-placeholder {
+    flex-shrink: 0;
+    width: 240px;
+    height: 180px;
+    background-color: #cbd5e1;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #475569;
+    font-size: 14px;
+    font-weight: 700;
+    border: 2px dashed #94a3b8;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 255, 255, 0.4) 10px, rgba(255, 255, 255, 0.4) 20px);
+    overflow: hidden;
+}
+
+.hero-content {
+    flex-grow: 1;
+}
+
+.hero-content h3 {
+    font-size: 26px;
+    color: var(--logo-color);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero-content p {
+    color: #475569;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+/* 下層三格配置 */
+.info-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* 一般方塊卡片 */
+.info-box {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f1f5f9;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.info-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(27, 92, 184, 0.12);
+}
+
+/* 頂部彩色裝飾線 */
+.info-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--logo-color), #60a5fa);
+}
+
+/* 圓形頭像預留區 */
+.avatar-placeholder {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background-color: #e2e8f0;
+    border: 3px solid #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 20px;
+    background-image: repeating-linear-gradient(-45deg, transparent, transparent 8px, rgba(255, 255, 255, 0.5) 8px, rgba(255, 255, 255, 0.5) 16px);
+}
+
+/* 手機版響應式 RWD 適應 */
+@media (max-width: 768px) {
+    .info-hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 24px;
+    }
+
+    .hero-content h3 {
+        justify-content: center;
+    }
+
+    .hero-image-placeholder {
+        width: 100%;
+        height: 160px;
+    }
+
+    .info-row {
+        grid-template-columns: 1fr;
+    }
+
+    .avatar-placeholder {
+        margin: 0 auto 20px auto;
+    }
+
+    .info-box {
+        text-align: center;
+    }
+}
+
+/* --- 小精靈提醒/規則面板 --- */
+.rules-panel {
+    background-color: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-left: 4px solid var(--logo-color);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.rules-panel h3 {
+    margin-top: 0;
+    color: #0f172a;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.rules-panel p {
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
+    font-size: 15px;
+}
+
+/* --- 升階與雙軌卡片擴充面板 --- */
+.stats-panels-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.stats-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.stats-card-header {
+    border-bottom: 2px solid var(--logo-color);
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.stats-card-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #1e293b;
+    margin: 0;
+}
+
+.stats-total-spent {
+    font-size: 14px;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.stats-total-spent span {
+    color: var(--logo-color);
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.stat-row-modern {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.stat-row-modern:last-child {
+    border-bottom: none;
+}
+
+.stat-label {
+    width: 44px;
+    font-size: 16px;
+    font-weight: 800;
+    color: #0f172a;
+    /* 統一為接近純黑的深色 */
+    text-transform: capitalize;
+}
+
+.stat-base-group {
+    display: flex;
+    align-items: center;
+    background: #f8fafc;
+    border-radius: 6px;
+    padding: 4px;
+    border: 1px solid #e2e8f0;
+}
+
+.stat-btn-sm {
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    color: #475569;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stat-btn-sm:active {
+    background: #e2e8f0;
+    transform: scale(0.95);
+}
+
+.stat-val-input {
+    width: 44px;
+    text-align: center;
+    border: none;
+    background: transparent;
+    font-weight: 700;
+    font-size: 16px;
+    color: #0f172a;
+    outline: none;
+}
+
+.stat-bonus-group {
+    display: flex;
+    align-items: center;
+    margin-left: 12px;
+    gap: 4px;
+}
+
+.bonus-plus {
+    color: #94a3b8;
+    font-weight: 700;
+}
+
+.stat-bonus-input {
+    width: 44px;
+    padding: 6px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: 600;
+    color: #3b82f6;
+    outline: none;
+    background-color: transparent;
+}
+
+.stat-bonus-input:focus {
+    border-color: var(--logo-color);
+}
+
+.stat-cost-indicator {
+    margin-left: auto;
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 600;
+    min-width: 48px;
+    text-align: right;
+}
+
+@media (max-width: 768px) {
+    .stats-panels-wrapper {
+        grid-template-columns: 1fr;
+    }
 }

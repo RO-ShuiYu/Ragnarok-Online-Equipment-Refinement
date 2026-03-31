@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RO 仙境傳說</title>
+    <title>RO 仙境傳說 - 首頁</title>
     <meta name="description" content="RO仙境傳說Online">
     <!-- 引入 Google Fonts 提升質感 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,24 +28,35 @@
                 </button>
                 <!-- 導航連結 -->
                 <nav class="nav-links">
-                    <a href="#">預留1</a>
-                    <a href="#">預留2</a>
-                    <a href="#">預留3</a>
-                    <a href="#">預留4</a>
-                    <a href="#">預留5</a>
-                    <a href="#">預留6</a>
-                    <a href="#">預留7</a>
+                    <a href="#" data-page="home" class="active-link">？？？</a>
+                    <a href="#" data-page="refine">精煉</a>
+                    <a href="#" data-page="materials">材料成本</a>
+                    <a href="#" data-page="stats">素質模擬</a>
                 </nav>
             </div>
-            <div class="nav-right">
-                <a href="#" class="register-btn">
-                    <!-- 使用簡單的 SVG icon 代替圖片以節省資源 -->
+            <div class="nav-right" style="display: flex; gap: 24px;">
+                <!-- 隱藏的檔案選擇器，限定選擇 json 檔供 Javascript 呼叫 -->
+                <input type="file" id="file-uploader" accept=".json" style="display: none;">
+
+                <a href="#" class="register-btn" id="btn-upload" aria-label="匯入設定">
+                    <!-- 上傳 SVG icon -->
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="12" cy="7" r="4"></circle>
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
                     </svg>
-                    預留按鈕
+                    匯入
+                </a>
+                <a href="#" class="register-btn" id="btn-download" aria-label="匯出設定">
+                    <!-- 下載 SVG icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    匯出
                 </a>
             </div>
         </div>
@@ -63,13 +74,682 @@
 
         <!-- Banner 文字與核心內容 -->
         <div class="banner-content">
-            <div class="badge">預留標籤</div>
-            <h1 class="main-title">預留主標題</h1>
-
-            <!-- RWC 內容預留區 -->
+            <div class="badge">RO 實用工具</div>
+            <h1 class="main-title">？？？</h1>
+            <!-- RWC 內容預留區 (所有分頁內容皆由下方隱藏區塊組成，確保本地端也能完美切換) -->
             <div class="rwc-placeholder" id="rwc-section">
-                <!-- 未來可在此加入 RWC 相關的活動標語、小 Banner 或連結 -->
-                <p>✦ 未來 RWC (Ragnarok World Championship) 相關內容保留區 ✦</p>
+                <!-- [1] 綜合資訊 -->
+                <div class="view-section" id="view-home">
+                    <div class="info-container">
+
+                        <!-- 第一層：大橫幅介紹區塊 (右側預留圖片) -->
+                        <div class="info-hero">
+                            <div class="hero-content">
+                                <h3><span style="font-size: 28px;">💡</span> 開發初衷</h3>
+                                <p>
+                                    每一次敲打神之金屬，都是一次對命運的賭博。身為 RO 的熱愛者，我常常為了計算高階防具與武器的精煉成本而焦頭爛額。
+                                    <br><br>
+                                    市面上的模擬器五花八門，但有時我們需要的只是一個**輕量、流暢且能隨時記憶存檔**的個人化小幫手。<br>
+                                    希望這個工具能讓所有想要追求極致神裝的玩家們，少走一點算數的彎路，多拿一點打王的快感！
+                                </p>
+                            </div>
+                            <!-- 預留一張中大型 RO 圖片 (例如：忽克連敲打鐵砧、或是精緻的裝備繪圖) -->
+                            <div class="hero-image-placeholder">
+                                [圖片預留區 240x180]<br>
+                                <span style="font-size:12px; font-weight:normal; margin-top:8px;">可將 &lt;img
+                                    src="..."&gt; 貼在此處</span>
+                            </div>
+                        </div>
+
+                        <!-- 第二層：三大附屬資訊區塊 -->
+                        <div class="info-row">
+                            <!-- 區塊 1：自我介紹 (含圓形大頭貼) -->
+                            <div class="info-box">
+                                <div class="avatar-placeholder">
+                                    大頭貼
+                                </div>
+                                <h3 style="font-size: 20px; color: #1e293b; margin-bottom: 12px;">👋 關於作者</h3>
+                                <p style="color: #64748b; line-height: 1.7; font-size: 15px;">
+                                    在此輸入您的自我介紹！<br>
+                                    例如：我是波利伺服器的休閒玩家 [遊戲名稱]，平日喜歡研究各種配裝與神話升階。<br>如果各位有任何改版建議也歡迎隨時交流！
+                                </p>
+                            </div>
+
+                            <!-- 區塊 2：資料來源 (含矩形裝飾小圖) -->
+                            <div class="info-box">
+                                <h3 style="font-size: 20px; color: #1e293b; margin-bottom: 12px;">📊 資料參考來源</h3>
+                                <p style="color: #64748b; line-height: 1.7; font-size: 15px;">
+                                    此平台的裝備機率與所需數量，皆參考自：<br>
+                                    1. RO 仙境傳說官方公告機率表<br>
+                                    2. 各大精華社群（如幻想廳）的最新整理
+                                </p>
+                                <!-- 小型裝飾圖片 -->
+                                <div class="hero-image-placeholder"
+                                    style="width: 100%; height: 90px; margin-top: 20px; font-size: 12px;">
+                                    [長條小圖預留] 不放也可刪除
+                                </div>
+                            </div>
+
+                            <!-- 區塊 3：各種感謝 -->
+                            <div class="info-box">
+                                <h3 style="font-size: 20px; color: #1e293b; margin-bottom: 12px;">🙏 特別感謝</h3>
+                                <p style="color: #64748b; line-height: 1.7; font-size: 15px;">
+                                    若有實測協助者可以在這裡表揚！<br><br>
+                                    範例：<br>
+                                    - 感謝公會會長無私贊助的測試神金<br>
+                                    - 感謝這陣子一直被我拿來實驗試算的好友們，以及無數次慘遭爆裝的犧牲品。
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- [2] 精煉成本 -->
+                <div class="view-section" id="view-refine" style="display: none;">
+                    <div class="section-layout">
+                        <!-- 預留的黑框描述文字區 -->
+                        <div class="section-description">
+                            <h2 class="desc-title">精煉</h2>
+                            <p class="desc-text">預留用來描述右邊表格的文字。請設定精煉各階段的目標數量與單價，自動算出總價。</p>
+                            <!-- 裝飾小長條 (使用者可在此放置鐵砧、精煉石等示意圖片) -->
+                            <div class="hero-image-placeholder"
+                                style="width: 100%; height: 100px; margin-top: 24px; font-size: 13px;">
+                                [精煉情境圖預留] 不放也可刪除
+                            </div>
+                        </div>
+                        <div class="table-container" style="color: #333;">
+                            <table class="ro-table">
+                                <thead>
+                                    <tr>
+                                        <th>材料</th>
+                                        <th>數量</th>
+                                        <th>單價</th>
+                                        <th>總價</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>[預留精煉材料 1]</td>
+                                        <td><input type="text" inputmode="numeric" class="qty-input ro-input" value="0"
+                                                placeholder="數量"></td>
+                                        <td><input type="text" inputmode="numeric" class="price-input ro-input"
+                                                value="0" placeholder="單價"></td>
+                                        <td class="row-total">0 z</td>
+                                    </tr>
+                                    <tr>
+                                        <td>[預留精煉材料 2]</td>
+                                        <td><input type="text" inputmode="numeric" class="qty-input ro-input" value="0"
+                                                placeholder="數量"></td>
+                                        <td><input type="text" inputmode="numeric" class="price-input ro-input"
+                                                value="0" placeholder="單價"></td>
+                                        <td class="row-total">0 z</td>
+                                    </tr>
+                                    <tr>
+                                        <td>[預留精煉材料 3]</td>
+                                        <td><input type="text" inputmode="numeric" class="qty-input ro-input" value="0"
+                                                placeholder="數量"></td>
+                                        <td><input type="text" inputmode="numeric" class="price-input ro-input"
+                                                value="0" placeholder="單價"></td>
+                                        <td class="row-total">0 z</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- [4] 升階所需要材料 -->
+                <div class="view-section" id="view-materials" style="display: none;">
+
+                    <!-- 預留的規則與說明區塊 -->
+                    <div class="rules-panel">
+                        <h3>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                style="color: var(--logo-color);">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                            </svg>
+                            使用規則與說明
+                        </h3>
+                        <p>
+                            這裡為您預留了一塊專屬的說明空間！<br>
+                            您可以在此填寫「如何判斷該自己合成，還是直接買市面上現成的」等實用技巧，或是提醒使用者這份試算表有哪些注意事項。
+                        </p>
+                    </div>
+
+                    <!-- 第 1 階 (預設顯示) -->
+                    <div class="section-layout tier-section" data-tier="1">
+                        <div class="section-description">
+                            <h2 class="desc-title">一般 升 D階</h2>
+                            <p class="desc-text">此階段的升階材料試算。可輸入每項材料的單價與數量來估算成本。</p>
+                            <!-- 裝飾小長條 (作為材料區的首圖裝飾) -->
+                            <div class="hero-image-placeholder"
+                                style="width: 100%; height: 100px; margin-top: 24px; font-size: 13px;">
+                                [材料情境圖預留] 不放也可刪除
+                            </div>
+                        </div>
+                        <div class="table-container" style="color: #333;">
+                            <!-- 升階決策面板 -->
+                            <div class="tier-summary-panel">
+                                <div class="price-option">
+                                    <label>
+                                        <input type="radio" name="tier1-choice" value="craft" class="ro-tier-radio"
+                                            checked>
+                                        <span class="option-name">合成價格:</span>
+                                        <span class="option-value crafting-price">0 z</span>
+                                    </label>
+                                </div>
+                                <div class="price-separator">或</div>
+                                <div class="price-option">
+                                    <label>
+                                        <input type="radio" name="tier1-choice" value="buy" class="ro-tier-radio">
+                                        <span class="option-name">成品價格:</span>
+                                        <input type="text" inputmode="numeric" class="finished-price-input ro-tier-data"
+                                            value="0" placeholder="輸入市價">
+                                    </label>
+                                </div>
+                            </div>
+                            <table class="ro-table">
+                                <thead>
+                                    <tr>
+                                        <th>材料</th>
+                                        <th>數量</th>
+                                        <th>單價</th>
+                                        <th>總價</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>乙太魔石</td>
+                                        <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty"
+                                                value="3" readonly title="固定需求量"></td>
+                                        <td><input type="text" inputmode="numeric" class="price-input ro-input"
+                                                value="0" placeholder="單價"></td>
+                                        <td class="row-total">0 z</td>
+                                    </tr>
+                                    <tr>
+                                        <td>天藍寶石</td>
+                                        <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty"
+                                                value="1" readonly title="固定需求量"></td>
+                                        <td><input type="text" inputmode="numeric" class="price-input ro-input"
+                                                value="0" placeholder="單價"></td>
+                                        <td class="row-total">0 z</td>
+                                    </tr>
+                                    <tr>
+                                        <td>製作費用</td>
+                                        <td style="text-align: center; color: #94a3b8; font-weight: 700;">
+                                            -<input type="text" style="display:none;"
+                                                class="qty-input ro-input fixed-qty" value="1" readonly>
+                                        </td>
+                                        <td><input type="text" inputmode="numeric"
+                                                class="price-input ro-input fixed-qty" value="100000" readonly
+                                                title="固定手續費">
+                                        </td>
+                                        <td class="row-total">0 z</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- 第 2 階 (預設隱藏) -->
+                    <div class="section-layout tier-section" data-tier="2" style="display: none; margin-top: 30px;">
+                        <div class="section-description">
+                            <h2 class="desc-title">D階 升 C階</h2>
+                            <p class="desc-text">此階段的升階材料試算。</p>
+                        </div>
+                        <div class="table-container" style="color: #333;">
+                            <!-- 升階決策面板 -->
+                            <div class="tier-summary-panel">
+                                <div class="price-option">
+                                    <label>
+                                        <input type="radio" name="tier2-choice" value="craft" class="ro-tier-radio"
+                                            checked>
+                                        <span class="option-name">合成價格:</span>
+                                        <span class="option-value crafting-price">0 z</span>
+                                    </label>
+                                </div>
+                                <div class="price-separator">或</div>
+                                <div class="price-option">
+                                    <label>
+                                        <input type="radio" name="tier2-choice" value="buy" class="ro-tier-radio">
+                                        <span class="option-name">成品價格:</span>
+                                        <input type="text" inputmode="numeric" class="finished-price-input ro-tier-data"
+                                            value="0" placeholder="輸入市價">
+                                    </label>
+                                </div>
+                            </div>
+                            <table class="ro-table">
+                                <thead>
+                                    <tr>
+                                        <th>材料</th>
+                                        <th>數量</th>
+                                        <th>單價</th>
+                                        <th>總價</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>乙太魔石</td>
+                                        <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty"
+                                                value="6" readonly title="固定需求量"></td>
+                                        <td><input type="text" inputmode="numeric" class="price-input ro-input"
+                                                value="0" placeholder="單價"></td>
+                                        <td class="row-total">0 z</td>
+                                    </tr>
+                                    <tr>
+                                        <td>黃寶石</td>
+                                        <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty"
+                                                value="1" readonly title="固定需求量"></td>
+                                        <td><input type="text" inputmode="numeric" class="price-input ro-input"
+                                                value="0" placeholder="單價"></td>
+                                        <td class="row-total">0 z</td>
+                                    </tr>
+                                    <tr>
+                                        <td>製作費用</td>
+                                        <td style="text-align: center; color: #94a3b8; font-weight: 700;">
+                                            -<input type="text" style="display:none;"
+                                                class="qty-input ro-input fixed-qty" value="1" readonly>
+                                        </td>
+                                        <td><input type="text" inputmode="numeric"
+                                                class="price-input ro-input fixed-qty" value="200000" readonly
+                                                title="固定手續費">
+                                        </td>
+                                        <td class="row-total">0 z</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- 第 3 階 (預設隱藏) -->
+                    <div class="section-layout tier-section" data-tier="3" style="display: none; margin-top: 30px;">
+                        <div class="section-description">
+                            <h2 class="desc-title">C階 升 B階</h2>
+                            <p class="desc-text">此階段的升階材料試算。</p>
+                        </div>
+                        <div class="table-container" style="color: #333;">
+                            <!-- 升階決策面板 -->
+                            <div class="tier-summary-panel">
+                                <div class="price-option">
+                                    <label>
+                                        <input type="radio" name="tier3-choice" value="craft" class="ro-tier-radio"
+                                            checked>
+                                        <span class="option-name">合成價格:</span>
+                                        <span class="option-value crafting-price">0 z</span>
+                                    </label>
+                                </div>
+                                <div class="price-separator">或</div>
+                                <div class="price-option">
+                                    <label>
+                                        <input type="radio" name="tier3-choice" value="buy" class="ro-tier-radio">
+                                        <span class="option-name">成品價格:</span>
+                                        <input type="text" inputmode="numeric" class="finished-price-input ro-tier-data"
+                                            value="0" placeholder="輸入市價">
+                                    </label>
+                                </div>
+                            </div>
+                            <table class="ro-table">
+                                <thead>
+                                    <tr>
+                                        <th>材料</th>
+                                        <th>數量</th>
+                                        <th>單價</th>
+                                        <th>總價</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>乙太魔石</td>
+                                        <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty"
+                                                value="10" readonly title="固定需求量"></td>
+                                        <td><input type="text" inputmode="numeric" class="price-input ro-input"
+                                                value="0" placeholder="單價"></td>
+                                        <td class="row-total">0 z</td>
+                                    </tr>
+                                    <tr>
+                                        <td>紫寶石</td>
+                                        <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty"
+                                                value="1" readonly title="固定需求量"></td>
+                                        <td><input type="text" inputmode="numeric" class="price-input ro-input"
+                                                value="0" placeholder="單價"></td>
+                                        <td class="row-total">0 z</td>
+                                    </tr>
+                                    <tr>
+                                        <td>製作費用</td>
+                                        <td style="text-align: center; color: #94a3b8; font-weight: 700;">
+                                            -<input type="text" style="display:none;"
+                                                class="qty-input ro-input fixed-qty" value="1" readonly>
+                                        </td>
+                                        <td><input type="text" inputmode="numeric"
+                                                class="price-input ro-input fixed-qty" value="300000" readonly
+                                                title="固定手續費">
+                                        </td>
+                                        <td class="row-total">0 z</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- 第 4 階 (預設隱藏) -->
+                    <div class="section-layout tier-section" data-tier="4" style="display: none; margin-top: 30px;">
+                        <div class="section-description">
+                            <h2 class="desc-title">B階 升 A階</h2>
+                            <p class="desc-text">此階段的升階材料試算。A階為目前最高階段。</p>
+                        </div>
+                        <div class="table-container" style="color: #333;">
+                            <!-- 升階決策面板 -->
+                            <div class="tier-summary-panel">
+                                <div class="price-option">
+                                    <label>
+                                        <input type="radio" name="tier4-choice" value="craft" class="ro-tier-radio"
+                                            checked>
+                                        <span class="option-name">合成價格:</span>
+                                        <span class="option-value crafting-price">0 z</span>
+                                    </label>
+                                </div>
+                                <div class="price-separator">或</div>
+                                <div class="price-option">
+                                    <label>
+                                        <input type="radio" name="tier4-choice" value="buy" class="ro-tier-radio">
+                                        <span class="option-name">成品價格:</span>
+                                        <input type="text" inputmode="numeric" class="finished-price-input ro-tier-data"
+                                            value="0" placeholder="輸入市價">
+                                    </label>
+                                </div>
+                            </div>
+                            <table class="ro-table">
+                                <thead>
+                                    <tr>
+                                        <th>材料</th>
+                                        <th>數量</th>
+                                        <th>單價</th>
+                                        <th>總價</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>乙太魔石</td>
+                                        <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty"
+                                                value="15" readonly title="固定需求量"></td>
+                                        <td><input type="text" inputmode="numeric" class="price-input ro-input"
+                                                value="0" placeholder="單價"></td>
+                                        <td class="row-total">0 z</td>
+                                    </tr>
+                                    <tr>
+                                        <td>琥珀</td>
+                                        <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty"
+                                                value="1" readonly title="固定需求量"></td>
+                                        <td><input type="text" inputmode="numeric" class="price-input ro-input"
+                                                value="0" placeholder="單價"></td>
+                                        <td class="row-total">0 z</td>
+                                    </tr>
+                                    <tr>
+                                        <td>製作費用</td>
+                                        <td style="text-align: center; color: #94a3b8; font-weight: 700;">
+                                            -<input type="text" style="display:none;"
+                                                class="qty-input ro-input fixed-qty" value="1" readonly>
+                                        </td>
+                                        <td><input type="text" inputmode="numeric"
+                                                class="price-input ro-input fixed-qty" value="500000" readonly
+                                                title="固定手續費">
+                                        </td>
+                                        <td class="row-total">0 z</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- 動態新增/移除階段按鈕 -->
+                    <div class="add-tier-container" style="display: flex; justify-content: center; gap: 16px;">
+                        <!-- 減少階段按鈕 (預設隱藏) -->
+                        <button id="btn-remove-tier" class="ro-btn-remove" style="display: none;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                            移除最後一階
+                        </button>
+                        <!-- 新增階段按鈕 -->
+                        <button id="btn-add-tier" class="ro-btn-add">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                            新增下一階層
+                        </button>
+                    </div>
+                </div>
+
+                <!-- [5] 素質模擬器 -->
+                <div class="view-section" id="view-stats" style="display: none;">
+                    <div class="section-layout" style="background: transparent; box-shadow: none;">
+                        <div class="section-description"
+                            style="border-radius: 12px; background: #fff; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); margin-bottom: 24px;">
+                            <h2 class="desc-title">人物能力屬性狀態</h2>
+                            <p class="desc-text">此為簡易版，如有錯誤麻煩通知我一下～</p>
+                            <div class="level-controls"
+                                style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #f1f5f9; display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
+                                <div>
+                                    <label style="font-weight: 700; color: #334155; margin-right: 8px;">角色等級
+                                        (1~275):</label>
+                                    <input type="number" id="char-level" value="200" min="1" max="275"
+                                        style="width: 80px; padding: 6px; border-radius: 6px; border: 1px solid #cbd5e1; font-weight: bold; outline: none; text-align: center;">
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 6px;">
+                                    <input type="checkbox" id="char-reborn" checked
+                                        style="width: 18px; height: 18px; cursor: pointer;">
+                                    <label for="char-reborn"
+                                        style="font-weight: 700; color: #334155; cursor: pointer;">轉生角色</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stats-panels-wrapper">
+                            <!-- 左方：基本素質 -->
+                            <div class="stats-card">
+                                <div class="stats-card-header">
+                                    <h3 class="stats-card-title">基本素質</h3>
+                                    <div class="stats-total-spent">
+                                        Status Point: <span id="base-points-total">4151</span>
+                                    </div>
+                                </div>
+                                <div class="stats-list">
+                                    <!-- STR -->
+                                    <div class="stat-row-modern" data-sys="base">
+                                        <div class="stat-label str">Str</div>
+                                        <div class="stat-base-group">
+                                            <button class="stat-btn-sm minus">-</button>
+                                            <input type="text" class="stat-val-input" data-stat="str" value="1">
+                                            <button class="stat-btn-sm plus">+</button>
+                                        </div>
+                                        <div class="stat-bonus-group">
+                                            <span class="bonus-plus">+</span>
+                                            <input type="text" class="stat-bonus-input" placeholder="0">
+                                        </div>
+                                        <div class="stat-cost-indicator">▶ <span class="cost-val">2</span></div>
+                                    </div>
+                                    <!-- AGI -->
+                                    <div class="stat-row-modern" data-sys="base">
+                                        <div class="stat-label agi">Agi</div>
+                                        <div class="stat-base-group">
+                                            <button class="stat-btn-sm minus">-</button>
+                                            <input type="text" class="stat-val-input" data-stat="agi" value="1">
+                                            <button class="stat-btn-sm plus">+</button>
+                                        </div>
+                                        <div class="stat-bonus-group">
+                                            <span class="bonus-plus">+</span>
+                                            <input type="text" class="stat-bonus-input" placeholder="0">
+                                        </div>
+                                        <div class="stat-cost-indicator">▶ <span class="cost-val">2</span></div>
+                                    </div>
+                                    <!-- VIT -->
+                                    <div class="stat-row-modern" data-sys="base">
+                                        <div class="stat-label vit">Vit</div>
+                                        <div class="stat-base-group">
+                                            <button class="stat-btn-sm minus">-</button>
+                                            <input type="text" class="stat-val-input" data-stat="vit" value="1">
+                                            <button class="stat-btn-sm plus">+</button>
+                                        </div>
+                                        <div class="stat-bonus-group">
+                                            <span class="bonus-plus">+</span>
+                                            <input type="text" class="stat-bonus-input" placeholder="0">
+                                        </div>
+                                        <div class="stat-cost-indicator">▶ <span class="cost-val">2</span></div>
+                                    </div>
+                                    <!-- INT -->
+                                    <div class="stat-row-modern" data-sys="base">
+                                        <div class="stat-label int">Int</div>
+                                        <div class="stat-base-group">
+                                            <button class="stat-btn-sm minus">-</button>
+                                            <input type="text" class="stat-val-input" data-stat="int" value="1">
+                                            <button class="stat-btn-sm plus">+</button>
+                                        </div>
+                                        <div class="stat-bonus-group">
+                                            <span class="bonus-plus">+</span>
+                                            <input type="text" class="stat-bonus-input" placeholder="0">
+                                        </div>
+                                        <div class="stat-cost-indicator">▶ <span class="cost-val">2</span></div>
+                                    </div>
+                                    <!-- DEX -->
+                                    <div class="stat-row-modern" data-sys="base">
+                                        <div class="stat-label dex">Dex</div>
+                                        <div class="stat-base-group">
+                                            <button class="stat-btn-sm minus">-</button>
+                                            <input type="text" class="stat-val-input" data-stat="dex" value="1">
+                                            <button class="stat-btn-sm plus">+</button>
+                                        </div>
+                                        <div class="stat-bonus-group">
+                                            <span class="bonus-plus">+</span>
+                                            <input type="text" class="stat-bonus-input" placeholder="0">
+                                        </div>
+                                        <div class="stat-cost-indicator">▶ <span class="cost-val">2</span></div>
+                                    </div>
+                                    <!-- LUK -->
+                                    <div class="stat-row-modern" data-sys="base">
+                                        <div class="stat-label luk">Luk</div>
+                                        <div class="stat-base-group">
+                                            <button class="stat-btn-sm minus">-</button>
+                                            <input type="text" class="stat-val-input" data-stat="luk" value="1">
+                                            <button class="stat-btn-sm plus">+</button>
+                                        </div>
+                                        <div class="stat-bonus-group">
+                                            <span class="bonus-plus">+</span>
+                                            <input type="text" class="stat-bonus-input" placeholder="0">
+                                        </div>
+                                        <div class="stat-cost-indicator">▶ <span class="cost-val">2</span></div>
+                                    </div>
+                                </div>
+                                <div style="text-align: center; margin-top: 24px;">
+                                    <button id="btn-reset-base" class="ro-btn-remove"
+                                        style="width: 100%; border-radius: 8px;">重置基本</button>
+                                </div>
+                            </div>
+
+                            <!-- 右方：特性素質 -->
+                            <div class="stats-card" id="trait-stats-panel">
+                                <div class="stats-card-header">
+                                    <h3 class="stats-card-title">特性素質</h3>
+                                    <div class="stats-total-spent">
+                                        T.Status Point: <span id="trait-points-total">0</span>
+                                    </div>
+                                </div>
+                                <div class="stats-list">
+                                    <div class="stat-row-modern" data-sys="trait">
+                                        <div class="stat-label pow">Pow</div>
+                                        <div class="stat-base-group">
+                                            <button class="stat-btn-sm minus">-</button>
+                                            <input type="text" class="stat-val-input" data-stat="pow" value="0">
+                                            <button class="stat-btn-sm plus">+</button>
+                                        </div>
+                                        <div class="stat-bonus-group">
+                                            <span class="bonus-plus">+</span>
+                                            <input type="text" class="stat-bonus-input" placeholder="0">
+                                        </div>
+                                        <div class="stat-cost-indicator">▶ <span class="cost-val">1</span></div>
+                                    </div>
+                                    <div class="stat-row-modern" data-sys="trait">
+                                        <div class="stat-label sta">Sta</div>
+                                        <div class="stat-base-group">
+                                            <button class="stat-btn-sm minus">-</button>
+                                            <input type="text" class="stat-val-input" data-stat="sta" value="0">
+                                            <button class="stat-btn-sm plus">+</button>
+                                        </div>
+                                        <div class="stat-bonus-group">
+                                            <span class="bonus-plus">+</span>
+                                            <input type="text" class="stat-bonus-input" placeholder="0">
+                                        </div>
+                                        <div class="stat-cost-indicator">▶ <span class="cost-val">1</span></div>
+                                    </div>
+                                    <div class="stat-row-modern" data-sys="trait">
+                                        <div class="stat-label wis">Wis</div>
+                                        <div class="stat-base-group">
+                                            <button class="stat-btn-sm minus">-</button>
+                                            <input type="text" class="stat-val-input" data-stat="wis" value="0">
+                                            <button class="stat-btn-sm plus">+</button>
+                                        </div>
+                                        <div class="stat-bonus-group">
+                                            <span class="bonus-plus">+</span>
+                                            <input type="text" class="stat-bonus-input" placeholder="0">
+                                        </div>
+                                        <div class="stat-cost-indicator">▶ <span class="cost-val">1</span></div>
+                                    </div>
+                                    <div class="stat-row-modern" data-sys="trait">
+                                        <div class="stat-label spl">Spl</div>
+                                        <div class="stat-base-group">
+                                            <button class="stat-btn-sm minus">-</button>
+                                            <input type="text" class="stat-val-input" data-stat="spl" value="0">
+                                            <button class="stat-btn-sm plus">+</button>
+                                        </div>
+                                        <div class="stat-bonus-group">
+                                            <span class="bonus-plus">+</span>
+                                            <input type="text" class="stat-bonus-input" placeholder="0">
+                                        </div>
+                                        <div class="stat-cost-indicator">▶ <span class="cost-val">1</span></div>
+                                    </div>
+                                    <div class="stat-row-modern" data-sys="trait">
+                                        <div class="stat-label con">Con</div>
+                                        <div class="stat-base-group">
+                                            <button class="stat-btn-sm minus">-</button>
+                                            <input type="text" class="stat-val-input" data-stat="con" value="0">
+                                            <button class="stat-btn-sm plus">+</button>
+                                        </div>
+                                        <div class="stat-bonus-group">
+                                            <span class="bonus-plus">+</span>
+                                            <input type="text" class="stat-bonus-input" placeholder="0">
+                                        </div>
+                                        <div class="stat-cost-indicator">▶ <span class="cost-val">1</span></div>
+                                    </div>
+                                    <div class="stat-row-modern" data-sys="trait">
+                                        <div class="stat-label crt">Crt</div>
+                                        <div class="stat-base-group">
+                                            <button class="stat-btn-sm minus">-</button>
+                                            <input type="text" class="stat-val-input" data-stat="crt" value="0">
+                                            <button class="stat-btn-sm plus">+</button>
+                                        </div>
+                                        <div class="stat-bonus-group">
+                                            <span class="bonus-plus">+</span>
+                                            <input type="text" class="stat-bonus-input" placeholder="0">
+                                        </div>
+                                        <div class="stat-cost-indicator">▶ <span class="cost-val">1</span></div>
+                                    </div>
+                                </div>
+                                <div style="text-align: center; margin-top: 24px;">
+                                    <button id="btn-reset-trait" class="ro-btn-remove"
+                                        style="width: 100%; border-radius: 8px;">重置特性</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -79,16 +759,673 @@
         <!-- 你提到後續會自己加進去，所以這邊暫留空白主體 -->
     </main>
 
-    <!-- 簡單的腳本來切換選單顯示 -->
+    <!-- SPA 顯示/隱藏切換腳本 -->
     <script>
+        // 1. 手機版選單切換
         const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
+        const navLinksContainer = document.querySelector('.nav-links');
 
-        if (menuToggle && navLinks) {
+        if (menuToggle && navLinksContainer) {
             menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
+                navLinksContainer.classList.toggle('active');
             });
         }
+
+        // 2. 透過隱藏 / 顯示 Div 來達成切換，確保不須伺服器也能運行
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const viewSections = document.querySelectorAll('.view-section');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                // 更新導航列亮起狀態
+                navLinks.forEach(l => l.classList.remove('active-link'));
+                link.classList.add('active-link');
+
+                // 動態更改 Banner 下方的主標題
+                const mainTitle = document.querySelector('.main-title');
+                if (mainTitle) {
+                    // 將「預留主標題」換成被點擊選單的名字 (例如：精煉成本)
+                    mainTitle.textContent = link.textContent;
+                }
+
+                // 隱藏全部區塊
+                viewSections.forEach(section => {
+                    section.style.display = 'none';
+                });
+
+                // 顯示目標區塊
+                const pageId = link.getAttribute('data-page');
+                const targetView = document.getElementById('view-' + pageId);
+                if (targetView) {
+                    targetView.style.display = 'block';
+                }
+
+                // 若在手機板，點擊後自動收合
+                if (window.innerWidth <= 768) {
+                    navLinksContainer.classList.remove('active');
+                }
+
+                saveState(); // 切換分頁時儲存狀態
+            });
+        });
+
+        // 3. 處理數字輸入框：焦點時轉純數字，失焦時加千分位
+        document.addEventListener('focusin', function (e) {
+            if (e.target.classList.contains('ro-input')) {
+                // 獲得焦點：移除逗號，方便使用者編輯純數字
+                e.target.value = e.target.value.replace(/,/g, '');
+            }
+        });
+
+        document.addEventListener('focusout', function (e) {
+            if (e.target.classList.contains('ro-input') || e.target.classList.contains('ro-tier-data')) {
+                // 失去焦點：處理並加上千分位逗號
+                let val = e.target.value.replace(/[^\d]/g, '');
+                if (val !== '') {
+                    e.target.value = parseInt(val, 10).toLocaleString();
+                } else {
+                    e.target.value = '0';
+                }
+                if (e.target.classList.contains('ro-input')) saveState(); // 失去焦點結算後儲存狀態
+                if (e.target.classList.contains('ro-tier-data')) saveTierState();
+            }
+        });
+
+        // 4. 自動計算表格總價 (包含打字中即時計算)
+        document.addEventListener('input', function (e) {
+            if (e.target.classList.contains('ro-input')) {
+                // 限制使用者打字時只能即時留下數字
+                e.target.value = e.target.value.replace(/[^\d]/g, '');
+
+                const tr = e.target.closest('tr');
+                const qtyVal = tr.querySelector('.qty-input').value.replace(/,/g, '');
+                const priceVal = tr.querySelector('.price-input').value.replace(/,/g, '');
+
+                const qty = parseInt(qtyVal) || 0;
+                const price = parseInt(priceVal) || 0;
+                const total = qty * price;
+
+                // 動態更新並加上千分位與 z 單位
+                tr.querySelector('.row-total').textContent = total.toLocaleString() + ' z';
+
+                // 也要即時更新整個表格的左上方總計欄位
+                const tableContainer = e.target.closest('.table-container');
+                let grandTotal = 0;
+                tableContainer.querySelectorAll('tbody tr').forEach(row => {
+                    const qInput = row.querySelector('.qty-input');
+                    const pInput = row.querySelector('.price-input');
+                    if (qInput && pInput) {
+                        const rowQty = parseInt(qInput.value.replace(/,/g, '')) || 0;
+                        const rowPrice = parseInt(pInput.value.replace(/,/g, '')) || 0;
+                        grandTotal += (rowQty * rowPrice);
+                    }
+                });
+
+                // 更新該表格的合成價格與精煉模組上的小計
+                const craftingPriceEl = tableContainer.querySelector('.crafting-price') || tableContainer.querySelector('.table-grand-total');
+                if (craftingPriceEl) {
+                    craftingPriceEl.textContent = grandTotal.toLocaleString() + ' z';
+                }
+
+                saveState(); // 打字時即時儲存狀態
+            }
+            if (e.target.classList.contains('ro-tier-data')) {
+                e.target.value = e.target.value.replace(/[^\d]/g, '');
+                saveTierState();
+            }
+        });
+
+        // 綁定 Radio 切換
+        document.addEventListener('change', function (e) {
+            if (e.target.classList.contains('ro-tier-radio')) {
+                saveTierState();
+            }
+        });
+
+        // ---------------------------------------------------------------------
+        // 5. 狀態存檔與讀取機制 (Local Storage - 即便刷新也會保留欄位資料與目前分頁)
+        let currentVisibleTiers = 1; // 記錄目前展開了幾階表格
+
+        function saveState() {
+            // 儲存所有輸入框的純數字值
+            const inputs = document.querySelectorAll('.ro-input');
+            const data = Array.from(inputs).map(input => input.value);
+            localStorage.setItem('roRefinementData', JSON.stringify(data));
+
+            // 儲存當下在哪一個分頁
+            const activeLink = document.querySelector('.nav-links .active-link');
+            if (activeLink) {
+                localStorage.setItem('roActiveTab', activeLink.getAttribute('data-page'));
+            }
+
+            // 儲存當下展開了幾階動態表格
+            localStorage.setItem('roVisibleTiers', currentVisibleTiers.toString());
+        }
+
+        function loadState() {
+            // 0. 讀取並恢復動態階層表格數量
+            const savedTiers = localStorage.getItem('roVisibleTiers');
+            if (savedTiers) {
+                updateTierVisibility(parseInt(savedTiers, 10) || 1);
+            } else {
+                updateTierVisibility(1);
+            }
+
+            // 1. 先讀取已經輸入好的數值陣列並塞回輸入框中
+            // (必須先執行這步，否則下方切換分頁時觸發的 saveState() 會把預設的 0 存進去覆蓋掉原有資料)
+            const savedData = localStorage.getItem('roRefinementData');
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                const inputs = document.querySelectorAll('.ro-input');
+                inputs.forEach((input, index) => {
+                    if (data[index] !== undefined) {
+                        // 若該欄位為固定寫死的數量 (readOnly)，則拒絕被存檔覆蓋
+                        if (!input.readOnly) {
+                            input.value = data[index];
+                        }
+                    }
+                });
+            }
+
+            // 2. 這時再讀取並切換回去上一次看的分頁
+            const activeTab = localStorage.getItem('roActiveTab');
+            if (activeTab) {
+                const navLinksContainer = document.querySelector('.nav-links');
+                // 利用原本的程式邏輯模擬點擊，達到自動切換效果
+                const targetLink = navLinksContainer.querySelector(`a[data-page="${activeTab}"]`);
+                if (targetLink) {
+                    targetLink.click();
+                }
+            }
+
+            // 初次載入強制觸發所有表格的試算與格式化 (確保網頁一打開就有逗號與總價計算)
+            document.querySelectorAll('.ro-input').forEach(input => {
+                // 觸發失焦的機制來強制加上千分位逗號
+                input.dispatchEvent(new Event('focusout', { bubbles: true }));
+            });
+
+            // 初次載入強制觸發每個表格重新計算總金額
+            document.querySelectorAll('.ro-table tbody tr:first-child .qty-input').forEach(input => {
+                input.dispatchEvent(new Event('input', { bubbles: true }));
+            });
+        }
+
+        // 確保網頁完成渲染後才開始讀取並載入資料
+        window.addEventListener('DOMContentLoaded', () => {
+            loadState();
+            loadTierState();
+        });
+
+        function saveTierState() {
+            const radios = Array.from(document.querySelectorAll('.ro-tier-radio')).map(r => r.checked);
+            const prices = Array.from(document.querySelectorAll('.ro-tier-data')).map(i => i.value);
+            localStorage.setItem('roTierDecisions', JSON.stringify({ radios, prices }));
+        }
+
+        function loadTierState() {
+            const text = localStorage.getItem('roTierDecisions');
+            if (text) {
+                try {
+                    const state = JSON.parse(text);
+                    if (state.radios) {
+                        const radios = document.querySelectorAll('.ro-tier-radio');
+                        state.radios.forEach((val, i) => { if (radios[i]) radios[i].checked = val; });
+                    }
+                    if (state.prices) {
+                        const prices = document.querySelectorAll('.ro-tier-data');
+                        state.prices.forEach((val, i) => { if (prices[i]) prices[i].value = val; });
+                    }
+                } catch (e) {
+                    console.error("無效的 Tier Decisions 存檔");
+                }
+            }
+
+            // 初次載入強制觸發逗號格式化
+            document.querySelectorAll('.ro-tier-data').forEach(input => {
+                input.dispatchEvent(new Event('focusout', { bubbles: true }));
+            });
+        }
+
+        // ---------------------------------------------------------------------
+        // 5.1 動態顯示升階表格邏輯
+        const btnAddTier = document.getElementById('btn-add-tier');
+        const btnRemoveTier = document.getElementById('btn-remove-tier');
+        const tierSections = document.querySelectorAll('.tier-section');
+
+        function updateTierVisibility(visibleCount) {
+            currentVisibleTiers = visibleCount;
+            // 控制每個分階表格區塊的顯示/隱藏
+            tierSections.forEach((section, index) => {
+                if (index < currentVisibleTiers) {
+                    section.style.display = 'flex'; // section-layout 使用了 flex 排版
+                } else {
+                    section.style.display = 'none';
+                    // 確保將隱藏區塊的數值歸零，以免重新載入或匯出時夾雜殘留數字
+                    section.querySelectorAll('.ro-input').forEach(input => {
+                        input.value = '0';
+                    });
+                    const grandTotalEl = section.querySelector('.table-grand-total') || section.querySelector('.crafting-price');
+                    if (grandTotalEl) grandTotalEl.textContent = '0 z';
+                    section.querySelectorAll('.row-total').forEach(rt => rt.textContent = '0 z');
+                    section.querySelectorAll('.ro-tier-data').forEach(input => input.value = '0');
+                    const radios = section.querySelectorAll('.ro-tier-radio');
+                    if (radios.length > 0 && radios.length >= 2) { radios[0].checked = true; radios[1].checked = false; }
+                }
+            });
+
+            // 控制新增按鈕 (到達 A階, 共4個時隱藏)
+            if (btnAddTier) {
+                if (currentVisibleTiers >= tierSections.length) {
+                    btnAddTier.style.display = 'none';
+                } else {
+                    btnAddTier.style.display = 'inline-flex';
+                }
+            }
+
+            // 控制移除按鈕 (超過 1 階時才顯示，只能自底端開始移除)
+            if (btnRemoveTier) {
+                if (currentVisibleTiers > 1) {
+                    btnRemoveTier.style.display = 'inline-flex';
+                } else {
+                    btnRemoveTier.style.display = 'none';
+                }
+            }
+        }
+
+        // 綁定「新增按鈕」的點擊事件
+        if (btnAddTier) {
+            btnAddTier.addEventListener('click', () => {
+                if (currentVisibleTiers < tierSections.length) {
+                    updateTierVisibility(currentVisibleTiers + 1);
+                    saveState(); // 馬上存檔，將開啟的層級記憶下來
+                }
+            });
+        }
+
+        // 綁定「移除按鈕」的點擊事件
+        if (btnRemoveTier) {
+            btnRemoveTier.addEventListener('click', () => {
+                if (currentVisibleTiers > 1) {
+                    updateTierVisibility(currentVisibleTiers - 1);
+                    saveState(); // 馬上存檔，覆寫掉被清空的隱藏區塊
+                }
+            });
+        }
+
+        // ---------------------------------------------------------------------
+        // 6. JSON 匯出與匯入功能
+        const btnDownload = document.getElementById('btn-download');
+        const btnUpload = document.getElementById('btn-upload');
+        const fileUploader = document.getElementById('file-uploader');
+
+        // [匯出] 點擊下載按鈕：將目前 localStorage 中的資料打包成 JSON 檔下載
+        if (btnDownload) {
+            btnDownload.addEventListener('click', (e) => {
+                e.preventDefault();
+                const savedData = localStorage.getItem('roRefinementData');
+                if (!savedData || savedData === '[]') {
+                    alert('沒有可下載的資料！請先在表格內輸入數字。');
+                    return;
+                }
+                const savedTiers = localStorage.getItem('roTierDecisions') || '{}';
+                const savedStats = localStorage.getItem('roStatsData') || '[]';
+                const payload = JSON.stringify({
+                    materials: JSON.parse(savedData),
+                    tierDecisions: JSON.parse(savedTiers),
+                    stats: JSON.parse(savedStats)
+                });
+
+                // 讓使用者輸入自訂的存檔名稱
+                let customName = window.prompt("請輸入檔案的名稱：", "我的精煉物品名稱");
+
+                // 如果使用者按取消，則終止下載
+                if (customName === null) {
+                    return;
+                }
+
+                // 去除前後空白，如果全都空白則塞預設值
+                customName = customName.trim();
+                if (customName === "") {
+                    customName = "ro_refine_build";
+                }
+
+                // 建立 Blob 與虛擬下載連結
+                const blob = new Blob([payload], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+
+                // 設定自動下載的檔名
+                a.download = `${customName}.json`;
+                document.body.appendChild(a);
+
+                a.click(); // 觸發下載
+
+                // 清理記憶體以防資源洩漏
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            });
+        }
+
+        // [匯入] 點擊上傳按鈕：跳出選檔視窗並解析 JSON
+        if (btnUpload && fileUploader) {
+            btnUpload.addEventListener('click', (e) => {
+                e.preventDefault();
+                // 觸發隱藏的 input=file 選擇器
+                fileUploader.click();
+            });
+
+            fileUploader.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (!file) return;
+
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    try {
+                        const content = event.target.result;
+                        // 解析 JSON 確保格式正確
+                        const parsedData = JSON.parse(content);
+                        if (Array.isArray(parsedData)) {
+                            // 舊版純陣列格式相容
+                            localStorage.setItem('roRefinementData', JSON.stringify(parsedData));
+                        } else if (parsedData.materials) {
+                            // 新版物件格式相容
+                            localStorage.setItem('roRefinementData', JSON.stringify(parsedData.materials));
+                            if (parsedData.tierDecisions) {
+                                localStorage.setItem('roTierDecisions', JSON.stringify(parsedData.tierDecisions));
+                            }
+                            if (parsedData.stats) {
+                                localStorage.setItem('roStatsData', JSON.stringify(parsedData.stats));
+                            }
+                        } else {
+                            throw new Error("檔案格式不符");
+                        }
+
+                        alert('✅ 設定檔已成功匯入！');
+
+                        // 重新把新的數字蓋回畫面並觸發防呆計算與千分位格式化
+                        loadState();
+                        loadTierState();
+                        if (typeof loadStatsState === 'function') loadStatsState();
+                    } catch (err) {
+                        alert('❌ 無法讀取檔案，請確認您選擇的是正確的 JSON 設定檔。');
+                    }
+
+                    // 清空選擇器，確保下次若選同一個檔案依然能觸發 change 事件
+                    fileUploader.value = '';
+                };
+                reader.readAsText(file);
+            });
+        }
+
+        // ---------------------------------------------------------------------
+        // 7. 素質模擬器邏輯
+        function getStatCost(targetLevel) {
+            if (targetLevel >= 126) return 36;
+            if (targetLevel >= 121) return 32;
+            if (targetLevel >= 116) return 28;
+            if (targetLevel >= 111) return 24;
+            if (targetLevel >= 106) return 20;
+            if (targetLevel >= 101) return 16;
+            if (targetLevel >= 92) return 11;
+            if (targetLevel >= 82) return 10;
+            if (targetLevel >= 72) return 9;
+            if (targetLevel >= 62) return 8;
+            if (targetLevel >= 52) return 7;
+            if (targetLevel >= 42) return 6;
+            if (targetLevel >= 32) return 5;
+            if (targetLevel >= 22) return 4;
+            if (targetLevel >= 12) return 3;
+            if (targetLevel >= 2) return 2;
+            return 0; // For level 1
+        }
+
+        // 預防您尚未提供 Trait Stat 規則，這裡給出通用的特性素質費率 (1-100階線性遞增，通常 1-10階1點，11-20階2點...等)
+        function getTraitStatCost(targetLevel) {
+            if (targetLevel <= 0) return 0;
+            return 1;
+        }
+
+        // 正確的 RO 計算器點數浮動公式
+        function getBasePointGain(lvl) {
+            if (lvl <= 1) return 0;
+            if (lvl >= 2 && lvl <= 100) return Math.floor((lvl - 1) / 5) + 3;
+            if (lvl >= 101 && lvl <= 150) return Math.floor((lvl - 1) / 10) + 13;
+            // 151 以上為 7 等一個級距
+            if (lvl >= 151 && lvl <= 157) return 28;
+            if (lvl >= 158 && lvl <= 164) return 29;
+            if (lvl >= 165 && lvl <= 171) return 30;
+            if (lvl >= 172 && lvl <= 178) return 31;
+            if (lvl >= 179 && lvl <= 185) return 32;
+            if (lvl >= 186 && lvl <= 192) return 33;
+            if (lvl >= 193 && lvl <= 199) return 34;
+            if (lvl === 200) return 35;
+            return 0;
+        }
+
+        function getMaxBasePoints(level, isReborn) {
+            let baseL = Math.min(level, 200);
+            let total = isReborn ? 100 : 48;
+
+            for (let i = 2; i <= baseL; i++) {
+                total += getBasePointGain(i);
+            }
+
+            return total;
+        }
+
+        function getMaxTraitPoints(level) {
+            if (level < 200) return 0;
+            let pts = 7;
+            let traitL = Math.min(level, 275);
+            for (let i = 201; i <= traitL; i++) {
+                pts += (i % 5 === 0) ? 7 : 3;
+            }
+            return pts;
+        }
+
+        function calculateAllStats() {
+            const charLevelEl = document.getElementById('char-level');
+            const charRebornEl = document.getElementById('char-reborn');
+            const lvl = parseInt(charLevelEl.value) || 1;
+
+            // 強制 100 級以上必定為轉生狀態
+            if (lvl >= 100) {
+                charRebornEl.checked = true;
+                charRebornEl.disabled = true;
+                charRebornEl.parentElement.style.opacity = '0.6';
+            } else {
+                charRebornEl.disabled = false;
+                charRebornEl.parentElement.style.opacity = '1';
+            }
+
+            const reb = charRebornEl.checked;
+
+            const MAX_BASE_POINTS = getMaxBasePoints(lvl, reb);
+            const MAX_TRAIT_POINTS = getMaxTraitPoints(lvl);
+
+            // Hide Trait panel if beneath level 200
+            const wrapper = document.querySelector('.stats-panels-wrapper');
+            const traitPanel = document.getElementById('trait-stats-panel');
+            if (lvl >= 200) {
+                if (traitPanel) traitPanel.style.display = 'block';
+                if (wrapper) wrapper.style.gridTemplateColumns = '';
+            } else {
+                if (traitPanel) traitPanel.style.display = 'none';
+                if (wrapper) wrapper.style.gridTemplateColumns = '1fr';
+            }
+
+            let baseGrandTotal = 0;
+            let traitGrandTotal = 0;
+
+            document.querySelectorAll('.stat-row-modern').forEach(row => {
+                const sys = row.getAttribute('data-sys'); // "base" or "trait"
+                const input = row.querySelector('.stat-val-input');
+                const val = parseInt(input.value) || 0;
+
+                let statTotal = 0;
+                const indicator = row.querySelector('.stat-cost-indicator');
+
+                if (sys === 'base') {
+                    for (let i = 2; i <= val; i++) statTotal += getStatCost(i);
+                    baseGrandTotal += statTotal;
+                    if (val >= 130) {
+                        indicator.style.visibility = 'hidden';
+                    } else {
+                        indicator.style.visibility = 'visible';
+                        row.querySelector('.cost-val').textContent = getStatCost(val + 1);
+                    }
+                } else if (sys === 'trait') {
+                    for (let i = 1; i <= val; i++) statTotal += getTraitStatCost(i);
+                    traitGrandTotal += statTotal;
+                    if (val >= 110) {
+                        indicator.style.visibility = 'hidden';
+                    } else {
+                        indicator.style.visibility = 'visible';
+                        row.querySelector('.cost-val').textContent = getTraitStatCost(val + 1);
+                    }
+                }
+            });
+
+            const remainingBase = MAX_BASE_POINTS - baseGrandTotal;
+            const elBase = document.getElementById('base-points-total');
+            elBase.textContent = remainingBase.toLocaleString();
+            if (remainingBase < 0) elBase.style.color = '#ef4444';
+            else elBase.style.color = '';
+
+            const remainingTrait = MAX_TRAIT_POINTS - traitGrandTotal;
+            const elTrait = document.getElementById('trait-points-total');
+            elTrait.textContent = remainingTrait.toLocaleString();
+            if (remainingTrait < 0) elTrait.style.color = '#ef4444';
+            else elTrait.style.color = '';
+
+            saveStatsState();
+        }
+
+        // 當調整等級或轉生狀態時觸發重算
+        document.getElementById('char-level').addEventListener('input', calculateAllStats);
+        document.getElementById('char-reborn').addEventListener('change', calculateAllStats);
+
+        function saveStatsState() {
+            const inputsBase = Array.from(document.querySelectorAll('.stat-val-input')).map(i => i.value);
+            const inputsBonus = Array.from(document.querySelectorAll('.stat-bonus-input')).map(i => i.value);
+            const charLvl = document.getElementById('char-level').value;
+            const charReb = document.getElementById('char-reborn').checked;
+            localStorage.setItem('roStatsData', JSON.stringify({ base: inputsBase, bonus: inputsBonus, level: charLvl, reborn: charReb }));
+        }
+
+        function loadStatsState() {
+            const text = localStorage.getItem('roStatsData');
+            if (text) {
+                try {
+                    const data = JSON.parse(text);
+                    if (Array.isArray(data)) {
+                        // Old flat array support
+                    } else {
+                        if (data.base) {
+                            const inputs = document.querySelectorAll('.stat-val-input');
+                            data.base.forEach((val, i) => { if (inputs[i]) inputs[i].value = val; });
+                        }
+                        if (data.bonus) {
+                            const inputs = document.querySelectorAll('.stat-bonus-input');
+                            data.bonus.forEach((val, i) => { if (inputs[i]) inputs[i].value = val; });
+                        }
+                        if (data.level) document.getElementById('char-level').value = data.level;
+                        if (data.reborn !== undefined) document.getElementById('char-reborn').checked = data.reborn;
+                    }
+                } catch (e) { }
+            }
+            calculateAllStats();
+        }
+
+        // Bind custom manual typing for stat inputs
+        document.querySelectorAll('.stat-val-input, .stat-bonus-input').forEach(input => {
+            input.addEventListener('input', function (e) {
+                e.target.value = e.target.value.replace(/[^\d]/g, '');
+
+                if (e.target.classList.contains('stat-val-input')) {
+                    const row = e.target.closest('.stat-row-modern');
+                    const sys = row.getAttribute('data-sys');
+                    let max = sys === 'base' ? 130 : 110;
+                    let val = parseInt(e.target.value) || 0;
+                    if (val > max) e.target.value = max;
+                }
+                calculateAllStats();
+            });
+            input.addEventListener('focusout', function (e) {
+                if (e.target.classList.contains('stat-val-input') && e.target.value === '') {
+                    const sys = e.target.closest('.stat-row-modern').getAttribute('data-sys');
+                    e.target.value = sys === 'base' ? '1' : '0';
+                    calculateAllStats();
+                }
+            });
+        });
+
+        // Bind hold events
+        document.querySelectorAll('.stat-row-modern').forEach(row => {
+            const btnMinus = row.querySelector('.minus');
+            const btnPlus = row.querySelector('.plus');
+            const input = row.querySelector('.stat-val-input');
+            const sys = row.getAttribute('data-sys'); // "base" or "trait"
+
+            const minAttr = sys === 'base' ? 1 : 0;
+            const maxAttr = sys === 'base' ? 130 : 110;
+
+            let holdTimer;
+            let actionInterval;
+
+            const startAction = (delta) => {
+                let val = parseInt(input.value) || minAttr;
+                val += delta;
+                if (val < minAttr) val = minAttr;
+                if (val > maxAttr) val = maxAttr;
+                input.value = val;
+                calculateAllStats();
+            };
+
+            const handlePress = (delta) => {
+                startAction(delta);
+                holdTimer = setTimeout(() => {
+                    actionInterval = setInterval(() => { startAction(delta); }, 50);
+                }, 300);
+            };
+
+            const handleRelease = () => {
+                clearTimeout(holdTimer);
+                clearInterval(actionInterval);
+            };
+
+            btnMinus.addEventListener('mousedown', () => handlePress(-1));
+            btnMinus.addEventListener('touchstart', (e) => { e.preventDefault(); handlePress(-1); }, { passive: false });
+            btnPlus.addEventListener('mousedown', () => handlePress(1));
+            btnPlus.addEventListener('touchstart', (e) => { e.preventDefault(); handlePress(1); }, { passive: false });
+
+            document.addEventListener('mouseup', handleRelease);
+            document.addEventListener('touchend', handleRelease);
+        });
+
+        const btnResetBase = document.getElementById('btn-reset-base');
+        if (btnResetBase) {
+            btnResetBase.addEventListener('click', () => {
+                document.querySelectorAll('.stat-row-modern[data-sys="base"] .stat-val-input').forEach(i => i.value = '1');
+                document.querySelectorAll('.stat-row-modern[data-sys="base"] .stat-bonus-input').forEach(i => i.value = '');
+                calculateAllStats();
+            });
+        }
+        const btnResetTrait = document.getElementById('btn-reset-trait');
+        if (btnResetTrait) {
+            btnResetTrait.addEventListener('click', () => {
+                document.querySelectorAll('.stat-row-modern[data-sys="trait"] .stat-val-input').forEach(i => i.value = '0');
+                document.querySelectorAll('.stat-row-modern[data-sys="trait"] .stat-bonus-input').forEach(i => i.value = '');
+                calculateAllStats();
+            });
+        }
+
+        // Ensure stats load on init
+        window.addEventListener('DOMContentLoaded', loadStatsState);
+
     </script>
 </body>
 
