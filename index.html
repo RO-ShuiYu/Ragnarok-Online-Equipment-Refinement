@@ -222,315 +222,475 @@
                         </p>
                     </div>
 
-                    <!-- 第 1 階 (預設顯示) -->
-                    <div class="section-layout tier-section" data-tier="1">
-                        <div class="section-description">
-                            <h2 class="desc-title">N階 → D階</h2>
-                            <h2 class="desc-title">乙太天藍寶石</h2>
-                            <p class="desc-text">此階段的升階材料試算。可輸入每項材料的單價與數量來估算成本。</p>
-                            <!-- 裝飾小長條 (作為材料區的首圖裝飾) -->
-                            <div class="hero-image-placeholder"
-                                style="width: 100%; height: 100px; margin-top: 24px; font-size: 13px;">
-                                [材料情境圖預留] 不放也可刪除
-                            </div>
-                        </div>
-                        <div class="table-container" style="color: #333;">
-                            <!-- 升階決策面板 -->
-                            <div class="tier-summary-panel">
-                                <div class="price-option">
-                                    <label>
-                                        <input type="radio" name="tier1-choice" value="craft" class="ro-tier-radio"
-                                            checked>
-                                        <span class="option-name">合成價格:</span>
-                                        <span class="option-value crafting-price">0 z</span>
-                                    </label>
-                                </div>
-                                <div class="price-separator">或</div>
-                                <div class="price-option">
-                                    <label>
-                                        <input type="radio" name="tier1-choice" value="buy" class="ro-tier-radio">
-                                        <span class="option-name">成品價格:</span>
-                                        <input type="text" inputmode="numeric" class="finished-price-input ro-tier-data"
-                                            value="0" placeholder="輸入市價">
-                                    </label>
-                                </div>
-                            </div>
-                            <table class="ro-table">
-                                <thead>
-                                    <tr>
-                                        <th>材料</th>
-                                        <th>數量</th>
-                                        <th>單價</th>
-                                        <th>總價</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>乙太魔石</td>
-                                        <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty"
-                                                value="3" readonly title="固定需求量"></td>
-                                        <td><input type="text" inputmode="numeric" class="price-input ro-input"
-                                                value="0" placeholder="單價"></td>
-                                        <td class="row-total">0 z</td>
-                                    </tr>
-                                    <tr>
-                                        <td>天藍寶石</td>
-                                        <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty"
-                                                value="1" readonly title="固定需求量"></td>
-                                        <td><input type="text" inputmode="numeric" class="price-input ro-input"
-                                                value="0" placeholder="單價"></td>
-                                        <td class="row-total">0 z</td>
-                                    </tr>
-                                    <tr>
-                                        <td>製作費用</td>
-                                        <td style="text-align: center; color: #94a3b8; font-weight: 700;">
-                                            -<input type="text" style="display:none;"
-                                                class="qty-input ro-input fixed-qty" value="1" readonly>
-                                        </td>
-                                        <td><input type="text" inputmode="numeric"
-                                                class="price-input ro-input fixed-qty" value="100000" readonly
-                                                title="固定手續費">
-                                        </td>
-                                        <td class="row-total">0 z</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                    <!-- 升階材料卡片網格 -->
+                    <div class="tier-grid">
 
-                    <!-- 第 2 階 (預設隱藏) -->
-                    <div class="section-layout tier-section" data-tier="2" style="display: none; margin-top: 30px;">
-                        <div class="section-description">
-                            <h2 class="desc-title">D階 → C階</h2>
-                            <h2 class="desc-title">乙太黃寶石</h2>
-                            <p class="desc-text">此階段的升階材料試算。</p>
-                        </div>
-                        <div class="table-container" style="color: #333;">
-                            <!-- 升階決策面板 -->
-                            <div class="tier-summary-panel">
-                                <div class="price-option">
-                                    <label>
-                                        <input type="radio" name="tier2-choice" value="craft" class="ro-tier-radio"
-                                            checked>
-                                        <span class="option-name">合成價格:</span>
-                                        <span class="option-value crafting-price">0 z</span>
-                                    </label>
-                                </div>
-                                <div class="price-separator">或</div>
-                                <div class="price-option">
-                                    <label>
-                                        <input type="radio" name="tier2-choice" value="buy" class="ro-tier-radio">
-                                        <span class="option-name">成品價格:</span>
-                                        <input type="text" inputmode="numeric" class="finished-price-input ro-tier-data"
-                                            value="0" placeholder="輸入市價">
-                                    </label>
-                                </div>
+                        <!-- 黑色系預設卡片 1 -->
+                        <div class="tier-card tier-card-dark tier-card-d1" data-tier="d1">
+                            <div class="tier-card-header">
+                                <span class="tier-from-to">預設標題 1</span>
+                                <span class="tier-gem-name">副標題說明</span>
                             </div>
-                            <table class="ro-table">
-                                <thead>
-                                    <tr>
-                                        <th>材料</th>
-                                        <th>數量</th>
-                                        <th>單價</th>
-                                        <th>總價</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>乙太魔石</td>
-                                        <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty"
-                                                value="6" readonly title="固定需求量"></td>
-                                        <td><input type="text" inputmode="numeric" class="price-input ro-input"
-                                                value="0" placeholder="單價"></td>
-                                        <td class="row-total">0 z</td>
-                                    </tr>
-                                    <tr>
-                                        <td>黃寶石</td>
-                                        <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty"
-                                                value="1" readonly title="固定需求量"></td>
-                                        <td><input type="text" inputmode="numeric" class="price-input ro-input"
-                                                value="0" placeholder="單價"></td>
-                                        <td class="row-total">0 z</td>
-                                    </tr>
-                                    <tr>
-                                        <td>製作費用</td>
-                                        <td style="text-align: center; color: #94a3b8; font-weight: 700;">
-                                            -<input type="text" style="display:none;"
-                                                class="qty-input ro-input fixed-qty" value="1" readonly>
-                                        </td>
-                                        <td><input type="text" inputmode="numeric"
-                                                class="price-input ro-input fixed-qty" value="200000" readonly
-                                                title="固定手續費">
-                                        </td>
-                                        <td class="row-total">0 z</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- 第 3 階 (預設隱藏) -->
-                    <div class="section-layout tier-section" data-tier="3" style="display: none; margin-top: 30px;">
-                        <div class="section-description">
-                            <h2 class="desc-title">C階 → B階</h2>
-                            <h2 class="desc-title">乙太紫寶石</h2>
-                            <p class="desc-text">此階段的升階材料試算。</p>
-                        </div>
-                        <div class="table-container" style="color: #333;">
-                            <!-- 升階決策面板 -->
-                            <div class="tier-summary-panel">
-                                <div class="price-option">
-                                    <label>
-                                        <input type="radio" name="tier3-choice" value="craft" class="ro-tier-radio"
-                                            checked>
-                                        <span class="option-name">合成價格:</span>
-                                        <span class="option-value crafting-price">0 z</span>
-                                    </label>
+                            <div class="tier-card-body table-container" style="color: #333;">
+                                <div class="tier-summary-panel">
+                                    <div class="tier-price-options">
+                                        <div class="price-option">
+                                            <label>
+                                                <input type="radio" name="darkd1-choice" value="craft" class="ro-tier-radio" checked>
+                                                <span class="option-name">合成:</span>
+                                                <span class="option-value crafting-price">0 z</span>
+                                            </label>
+                                        </div>
+                                        <div class="price-separator">或</div>
+                                        <div class="price-option">
+                                            <label>
+                                                <input type="radio" name="darkd1-choice" value="buy" class="ro-tier-radio">
+                                                <span class="option-name">市價:</span>
+                                                <input type="text" inputmode="numeric" class="finished-price-input ro-tier-data" value="0" placeholder="輸入市價">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="tier-gem-img" title="點擊選擇物品圖片">
+                                        <span>🌑</span>
+                                    </div>
                                 </div>
-                                <div class="price-separator">或</div>
-                                <div class="price-option">
-                                    <label>
-                                        <input type="radio" name="tier3-choice" value="buy" class="ro-tier-radio">
-                                        <span class="option-name">成品價格:</span>
-                                        <input type="text" inputmode="numeric" class="finished-price-input ro-tier-data"
-                                            value="0" placeholder="輸入市價">
-                                    </label>
-                                </div>
+                                <table class="ro-table">
+                                    <thead><tr><th>材料</th><th>數量</th><th>單價</th><th>總價</th></tr></thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>材料 A</td>
+                                            <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty" value="1" readonly title="固定需求量"></td>
+                                            <td><input type="text" inputmode="numeric" class="price-input ro-input" value="0" placeholder="單價"></td>
+                                            <td class="row-total">0 z</td>
+                                        </tr>
+                                        <tr>
+                                            <td>材料 B</td>
+                                            <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty" value="1" readonly title="固定需求量"></td>
+                                            <td><input type="text" inputmode="numeric" class="price-input ro-input" value="0" placeholder="單價"></td>
+                                            <td class="row-total">0 z</td>
+                                        </tr>
+                                        <tr>
+                                            <td>製作費用</td>
+                                            <td style="text-align:center;color:#94a3b8;font-weight:700;">-<input type="text" style="display:none;" class="qty-input ro-input fixed-qty" value="1" readonly></td>
+                                            <td><input type="text" inputmode="numeric" class="price-input ro-input fixed-qty" value="0" readonly title="固定手續費"></td>
+                                            <td class="row-total">0 z</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                            <table class="ro-table">
-                                <thead>
-                                    <tr>
-                                        <th>材料</th>
-                                        <th>數量</th>
-                                        <th>單價</th>
-                                        <th>總價</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>乙太魔石</td>
-                                        <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty"
-                                                value="10" readonly title="固定需求量"></td>
-                                        <td><input type="text" inputmode="numeric" class="price-input ro-input"
-                                                value="0" placeholder="單價"></td>
-                                        <td class="row-total">0 z</td>
-                                    </tr>
-                                    <tr>
-                                        <td>紫寶石</td>
-                                        <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty"
-                                                value="1" readonly title="固定需求量"></td>
-                                        <td><input type="text" inputmode="numeric" class="price-input ro-input"
-                                                value="0" placeholder="單價"></td>
-                                        <td class="row-total">0 z</td>
-                                    </tr>
-                                    <tr>
-                                        <td>製作費用</td>
-                                        <td style="text-align: center; color: #94a3b8; font-weight: 700;">
-                                            -<input type="text" style="display:none;"
-                                                class="qty-input ro-input fixed-qty" value="1" readonly>
-                                        </td>
-                                        <td><input type="text" inputmode="numeric"
-                                                class="price-input ro-input fixed-qty" value="300000" readonly
-                                                title="固定手續費">
-                                        </td>
-                                        <td class="row-total">0 z</td>
-                                    </tr>
-                                </tbody>
-                            </table>
                         </div>
-                    </div>
 
-                    <!-- 第 4 階 (預設隱藏) -->
-                    <div class="section-layout tier-section" data-tier="4" style="display: none; margin-top: 30px;">
-                        <div class="section-description">
-                            <h2 class="desc-title">B階 → A階</h2>
-                            <h2 class="desc-title">乙太琥珀</h2>
-                            <p class="desc-text">此階段的升階材料試算。A階為目前最高階段。</p>
-                        </div>
-                        <div class="table-container" style="color: #333;">
-                            <!-- 升階決策面板 -->
-                            <div class="tier-summary-panel">
-                                <div class="price-option">
-                                    <label>
-                                        <input type="radio" name="tier4-choice" value="craft" class="ro-tier-radio"
-                                            checked>
-                                        <span class="option-name">合成價格:</span>
-                                        <span class="option-value crafting-price">0 z</span>
-                                    </label>
-                                </div>
-                                <div class="price-separator">或</div>
-                                <div class="price-option">
-                                    <label>
-                                        <input type="radio" name="tier4-choice" value="buy" class="ro-tier-radio">
-                                        <span class="option-name">成品價格:</span>
-                                        <input type="text" inputmode="numeric" class="finished-price-input ro-tier-data"
-                                            value="0" placeholder="輸入市價">
-                                    </label>
-                                </div>
+                        <!-- 黑色系預設卡片 2 -->
+                        <div class="tier-card tier-card-dark tier-card-d2" data-tier="d2">
+                            <div class="tier-card-header">
+                                <span class="tier-from-to">預設標題 2</span>
+                                <span class="tier-gem-name">副標題說明</span>
                             </div>
-                            <table class="ro-table">
-                                <thead>
-                                    <tr>
-                                        <th>材料</th>
-                                        <th>數量</th>
-                                        <th>單價</th>
-                                        <th>總價</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>乙太魔石</td>
-                                        <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty"
-                                                value="15" readonly title="固定需求量"></td>
-                                        <td><input type="text" inputmode="numeric" class="price-input ro-input"
-                                                value="0" placeholder="單價"></td>
-                                        <td class="row-total">0 z</td>
-                                    </tr>
-                                    <tr>
-                                        <td>琥珀</td>
-                                        <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty"
-                                                value="1" readonly title="固定需求量"></td>
-                                        <td><input type="text" inputmode="numeric" class="price-input ro-input"
-                                                value="0" placeholder="單價"></td>
-                                        <td class="row-total">0 z</td>
-                                    </tr>
-                                    <tr>
-                                        <td>製作費用</td>
-                                        <td style="text-align: center; color: #94a3b8; font-weight: 700;">
-                                            -<input type="text" style="display:none;"
-                                                class="qty-input ro-input fixed-qty" value="1" readonly>
-                                        </td>
-                                        <td><input type="text" inputmode="numeric"
-                                                class="price-input ro-input fixed-qty" value="500000" readonly
-                                                title="固定手續費">
-                                        </td>
-                                        <td class="row-total">0 z</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div class="tier-card-body table-container" style="color: #333;">
+                                <div class="tier-summary-panel">
+                                    <div class="tier-price-options">
+                                        <div class="price-option">
+                                            <label>
+                                                <input type="radio" name="darkd2-choice" value="craft" class="ro-tier-radio" checked>
+                                                <span class="option-name">合成:</span>
+                                                <span class="option-value crafting-price">0 z</span>
+                                            </label>
+                                        </div>
+                                        <div class="price-separator">或</div>
+                                        <div class="price-option">
+                                            <label>
+                                                <input type="radio" name="darkd2-choice" value="buy" class="ro-tier-radio">
+                                                <span class="option-name">市價:</span>
+                                                <input type="text" inputmode="numeric" class="finished-price-input ro-tier-data" value="0" placeholder="輸入市價">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="tier-gem-img" title="點擊選擇物品圖片">
+                                        <span>🌑</span>
+                                    </div>
+                                </div>
+                                <table class="ro-table">
+                                    <thead><tr><th>材料</th><th>數量</th><th>單價</th><th>總價</th></tr></thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>材料 A</td>
+                                            <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty" value="1" readonly title="固定需求量"></td>
+                                            <td><input type="text" inputmode="numeric" class="price-input ro-input" value="0" placeholder="單價"></td>
+                                            <td class="row-total">0 z</td>
+                                        </tr>
+                                        <tr>
+                                            <td>材料 B</td>
+                                            <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty" value="1" readonly title="固定需求量"></td>
+                                            <td><input type="text" inputmode="numeric" class="price-input ro-input" value="0" placeholder="單價"></td>
+                                            <td class="row-total">0 z</td>
+                                        </tr>
+                                        <tr>
+                                            <td>製作費用</td>
+                                            <td style="text-align:center;color:#94a3b8;font-weight:700;">-<input type="text" style="display:none;" class="qty-input ro-input fixed-qty" value="1" readonly></td>
+                                            <td><input type="text" inputmode="numeric" class="price-input ro-input fixed-qty" value="0" readonly title="固定手續費"></td>
+                                            <td class="row-total">0 z</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- 動態新增/移除階段按鈕 -->
-                    <div class="add-tier-container" style="display: flex; justify-content: center; gap: 16px;">
-                        <!-- 減少階段按鈕 (預設隱藏) -->
-                        <button id="btn-remove-tier" class="ro-btn-remove" style="display: none;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <!-- 黑色系預設卡片 3 -->
+                        <div class="tier-card tier-card-dark tier-card-d3" data-tier="d3">
+                            <div class="tier-card-header">
+                                <span class="tier-from-to">預設標題 3</span>
+                                <span class="tier-gem-name">副標題說明</span>
+                            </div>
+                            <div class="tier-card-body table-container" style="color: #333;">
+                                <div class="tier-summary-panel">
+                                    <div class="tier-price-options">
+                                        <div class="price-option">
+                                            <label>
+                                                <input type="radio" name="darkd3-choice" value="craft" class="ro-tier-radio" checked>
+                                                <span class="option-name">合成:</span>
+                                                <span class="option-value crafting-price">0 z</span>
+                                            </label>
+                                        </div>
+                                        <div class="price-separator">或</div>
+                                        <div class="price-option">
+                                            <label>
+                                                <input type="radio" name="darkd3-choice" value="buy" class="ro-tier-radio">
+                                                <span class="option-name">市價:</span>
+                                                <input type="text" inputmode="numeric" class="finished-price-input ro-tier-data" value="0" placeholder="輸入市價">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="tier-gem-img" title="點擊選擇物品圖片">
+                                        <span>🌑</span>
+                                    </div>
+                                </div>
+                                <table class="ro-table">
+                                    <thead><tr><th>材料</th><th>數量</th><th>單價</th><th>總價</th></tr></thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>材料 A</td>
+                                            <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty" value="1" readonly title="固定需求量"></td>
+                                            <td><input type="text" inputmode="numeric" class="price-input ro-input" value="0" placeholder="單價"></td>
+                                            <td class="row-total">0 z</td>
+                                        </tr>
+                                        <tr>
+                                            <td>材料 B</td>
+                                            <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty" value="1" readonly title="固定需求量"></td>
+                                            <td><input type="text" inputmode="numeric" class="price-input ro-input" value="0" placeholder="單價"></td>
+                                            <td class="row-total">0 z</td>
+                                        </tr>
+                                        <tr>
+                                            <td>製作費用</td>
+                                            <td style="text-align:center;color:#94a3b8;font-weight:700;">-<input type="text" style="display:none;" class="qty-input ro-input fixed-qty" value="1" readonly></td>
+                                            <td><input type="text" inputmode="numeric" class="price-input ro-input fixed-qty" value="0" readonly title="固定手續費"></td>
+                                            <td class="row-total">0 z</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- 黑色系預設卡片 4 -->
+                        <div class="tier-card tier-card-dark tier-card-d4" data-tier="d4">
+                            <div class="tier-card-header">
+                                <span class="tier-from-to">預設標題 4</span>
+                                <span class="tier-gem-name">副標題說明</span>
+                            </div>
+                            <div class="tier-card-body table-container" style="color: #333;">
+                                <div class="tier-summary-panel">
+                                    <div class="tier-price-options">
+                                        <div class="price-option">
+                                            <label>
+                                                <input type="radio" name="darkd4-choice" value="craft" class="ro-tier-radio" checked>
+                                                <span class="option-name">合成:</span>
+                                                <span class="option-value crafting-price">0 z</span>
+                                            </label>
+                                        </div>
+                                        <div class="price-separator">或</div>
+                                        <div class="price-option">
+                                            <label>
+                                                <input type="radio" name="darkd4-choice" value="buy" class="ro-tier-radio">
+                                                <span class="option-name">市價:</span>
+                                                <input type="text" inputmode="numeric" class="finished-price-input ro-tier-data" value="0" placeholder="輸入市價">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="tier-gem-img" title="點擊選擇物品圖片">
+                                        <span>🌑</span>
+                                    </div>
+                                </div>
+                                <table class="ro-table">
+                                    <thead><tr><th>材料</th><th>數量</th><th>單價</th><th>總價</th></tr></thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>材料 A</td>
+                                            <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty" value="1" readonly title="固定需求量"></td>
+                                            <td><input type="text" inputmode="numeric" class="price-input ro-input" value="0" placeholder="單價"></td>
+                                            <td class="row-total">0 z</td>
+                                        </tr>
+                                        <tr>
+                                            <td>材料 B</td>
+                                            <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty" value="1" readonly title="固定需求量"></td>
+                                            <td><input type="text" inputmode="numeric" class="price-input ro-input" value="0" placeholder="單價"></td>
+                                            <td class="row-total">0 z</td>
+                                        </tr>
+                                        <tr>
+                                            <td>製作費用</td>
+                                            <td style="text-align:center;color:#94a3b8;font-weight:700;">-<input type="text" style="display:none;" class="qty-input ro-input fixed-qty" value="1" readonly></td>
+                                            <td><input type="text" inputmode="numeric" class="price-input ro-input fixed-qty" value="0" readonly title="固定手續費"></td>
+                                            <td class="row-total">0 z</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div><!-- /tier-grid (灰色預設排) -->
+
+                    <!-- 升階材料說明區塊 -->
+                    <div class="rules-panel">
+                        <h3>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                style="color: var(--logo-color);">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
                             </svg>
-                            移除最後一階
-                        </button>
-                        <!-- 新增階段按鈕 -->
-                        <button id="btn-add-tier" class="ro-btn-add">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                            新增下一階層
-                        </button>
+                            使用規則與說明
+                        </h3>
+                        <p>
+                            這裡為您預留了一塊專屬的說明空間！<br>
+                            您可以在此填寫升階所需的材料說明、取得方式，或是提醒使用者各階段費用的注意事項。
+                        </p>
                     </div>
+
+                    <!-- 升階材料卡片網格（N→D、D→C、C→B、B→A） -->
+                    <div class="tier-grid">
+
+                        <!-- 第 1 階：N → D -->
+                        <div class="tier-card tier-card-1" data-tier="1">
+                            <div class="tier-card-header">
+                                <span class="tier-from-to">N階 → D階</span>
+                                <span class="tier-gem-name">乙太天藍寶石</span>
+                            </div>
+                            <div class="tier-card-body table-container" style="color: #333;">
+                                <div class="tier-summary-panel">
+                                    <div class="tier-price-options">
+                                        <div class="price-option">
+                                            <label>
+                                                <input type="radio" name="tier1-choice" value="craft" class="ro-tier-radio" checked>
+                                                <span class="option-name">合成:</span>
+                                                <span class="option-value crafting-price">0 z</span>
+                                            </label>
+                                        </div>
+                                        <div class="price-separator">或</div>
+                                        <div class="price-option">
+                                            <label>
+                                                <input type="radio" name="tier1-choice" value="buy" class="ro-tier-radio">
+                                                <span class="option-name">市價:</span>
+                                                <input type="text" inputmode="numeric" class="finished-price-input ro-tier-data" value="0" placeholder="輸入市價">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="tier-gem-img" title="點擊選擇物品圖片">
+                                        <span>🔮</span>
+                                    </div>
+                                </div>
+                                <table class="ro-table">
+                                    <thead><tr><th>材料</th><th>數量</th><th>單價</th><th>總價</th></tr></thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>乙太魔石</td>
+                                            <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty" value="3" readonly title="固定需求量"></td>
+                                            <td><input type="text" inputmode="numeric" class="price-input ro-input" value="0" placeholder="單價"></td>
+                                            <td class="row-total">0 z</td>
+                                        </tr>
+                                        <tr>
+                                            <td>天藍寶石</td>
+                                            <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty" value="1" readonly title="固定需求量"></td>
+                                            <td><input type="text" inputmode="numeric" class="price-input ro-input" value="0" placeholder="單價"></td>
+                                            <td class="row-total">0 z</td>
+                                        </tr>
+                                        <tr>
+                                            <td>製作費用</td>
+                                            <td style="text-align:center;color:#94a3b8;font-weight:700;">-<input type="text" style="display:none;" class="qty-input ro-input fixed-qty" value="1" readonly></td>
+                                            <td><input type="text" inputmode="numeric" class="price-input ro-input fixed-qty" value="100000" readonly title="固定手續費"></td>
+                                            <td class="row-total">0 z</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- 第 2 階：D → C -->
+                        <div class="tier-card tier-card-2" data-tier="2">
+                            <div class="tier-card-header">
+                                <span class="tier-from-to">D階 → C階</span>
+                                <span class="tier-gem-name">乙太黃寶石</span>
+                            </div>
+                            <div class="tier-card-body table-container" style="color: #333;">
+                                <div class="tier-summary-panel">
+                                    <div class="tier-price-options">
+                                        <div class="price-option">
+                                            <label>
+                                                <input type="radio" name="tier2-choice" value="craft" class="ro-tier-radio" checked>
+                                                <span class="option-name">合成:</span>
+                                                <span class="option-value crafting-price">0 z</span>
+                                            </label>
+                                        </div>
+                                        <div class="price-separator">或</div>
+                                        <div class="price-option">
+                                            <label>
+                                                <input type="radio" name="tier2-choice" value="buy" class="ro-tier-radio">
+                                                <span class="option-name">市價:</span>
+                                                <input type="text" inputmode="numeric" class="finished-price-input ro-tier-data" value="0" placeholder="輸入市價">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="tier-gem-img" title="點擊選擇物品圖片">
+                                        <span>🔮</span>
+                                    </div>
+                                </div>
+                                <table class="ro-table">
+                                    <thead><tr><th>材料</th><th>數量</th><th>單價</th><th>總價</th></tr></thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>乙太魔石</td>
+                                            <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty" value="6" readonly title="固定需求量"></td>
+                                            <td><input type="text" inputmode="numeric" class="price-input ro-input" value="0" placeholder="單價"></td>
+                                            <td class="row-total">0 z</td>
+                                        </tr>
+                                        <tr>
+                                            <td>黃寶石</td>
+                                            <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty" value="1" readonly title="固定需求量"></td>
+                                            <td><input type="text" inputmode="numeric" class="price-input ro-input" value="0" placeholder="單價"></td>
+                                            <td class="row-total">0 z</td>
+                                        </tr>
+                                        <tr>
+                                            <td>製作費用</td>
+                                            <td style="text-align:center;color:#94a3b8;font-weight:700;">-<input type="text" style="display:none;" class="qty-input ro-input fixed-qty" value="1" readonly></td>
+                                            <td><input type="text" inputmode="numeric" class="price-input ro-input fixed-qty" value="200000" readonly title="固定手續費"></td>
+                                            <td class="row-total">0 z</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- 第 3 階：C → B -->
+                        <div class="tier-card tier-card-3" data-tier="3">
+                            <div class="tier-card-header">
+                                <span class="tier-from-to">C階 → B階</span>
+                                <span class="tier-gem-name">乙太紫寶石</span>
+                            </div>
+                            <div class="tier-card-body table-container" style="color: #333;">
+                                <div class="tier-summary-panel">
+                                    <div class="tier-price-options">
+                                        <div class="price-option">
+                                            <label>
+                                                <input type="radio" name="tier3-choice" value="craft" class="ro-tier-radio" checked>
+                                                <span class="option-name">合成:</span>
+                                                <span class="option-value crafting-price">0 z</span>
+                                            </label>
+                                        </div>
+                                        <div class="price-separator">或</div>
+                                        <div class="price-option">
+                                            <label>
+                                                <input type="radio" name="tier3-choice" value="buy" class="ro-tier-radio">
+                                                <span class="option-name">市價:</span>
+                                                <input type="text" inputmode="numeric" class="finished-price-input ro-tier-data" value="0" placeholder="輸入市價">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="tier-gem-img" title="點擊選擇物品圖片">
+                                        <span>🔮</span>
+                                    </div>
+                                </div>
+                                <table class="ro-table">
+                                    <thead><tr><th>材料</th><th>數量</th><th>單價</th><th>總價</th></tr></thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>乙太魔石</td>
+                                            <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty" value="10" readonly title="固定需求量"></td>
+                                            <td><input type="text" inputmode="numeric" class="price-input ro-input" value="0" placeholder="單價"></td>
+                                            <td class="row-total">0 z</td>
+                                        </tr>
+                                        <tr>
+                                            <td>紫寶石</td>
+                                            <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty" value="1" readonly title="固定需求量"></td>
+                                            <td><input type="text" inputmode="numeric" class="price-input ro-input" value="0" placeholder="單價"></td>
+                                            <td class="row-total">0 z</td>
+                                        </tr>
+                                        <tr>
+                                            <td>製作費用</td>
+                                            <td style="text-align:center;color:#94a3b8;font-weight:700;">-<input type="text" style="display:none;" class="qty-input ro-input fixed-qty" value="1" readonly></td>
+                                            <td><input type="text" inputmode="numeric" class="price-input ro-input fixed-qty" value="300000" readonly title="固定手續費"></td>
+                                            <td class="row-total">0 z</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- 第 4 階：B → A -->
+                        <div class="tier-card tier-card-4" data-tier="4">
+                            <div class="tier-card-header">
+                                <span class="tier-from-to">B階 → A階</span>
+                                <span class="tier-gem-name">乙太琥珀</span>
+                            </div>
+                            <div class="tier-card-body table-container" style="color: #333;">
+                                <div class="tier-summary-panel">
+                                    <div class="tier-price-options">
+                                        <div class="price-option">
+                                            <label>
+                                                <input type="radio" name="tier4-choice" value="craft" class="ro-tier-radio" checked>
+                                                <span class="option-name">合成:</span>
+                                                <span class="option-value crafting-price">0 z</span>
+                                            </label>
+                                        </div>
+                                        <div class="price-separator">或</div>
+                                        <div class="price-option">
+                                            <label>
+                                                <input type="radio" name="tier4-choice" value="buy" class="ro-tier-radio">
+                                                <span class="option-name">市價:</span>
+                                                <input type="text" inputmode="numeric" class="finished-price-input ro-tier-data" value="0" placeholder="輸入市價">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="tier-gem-img" title="點擊選擇物品圖片">
+                                        <span>🔮</span>
+                                    </div>
+                                </div>
+                                <table class="ro-table">
+                                    <thead><tr><th>材料</th><th>數量</th><th>單價</th><th>總價</th></tr></thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>乙太魔石</td>
+                                            <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty" value="15" readonly title="固定需求量"></td>
+                                            <td><input type="text" inputmode="numeric" class="price-input ro-input" value="0" placeholder="單價"></td>
+                                            <td class="row-total">0 z</td>
+                                        </tr>
+                                        <tr>
+                                            <td>琥珀</td>
+                                            <td><input type="text" inputmode="numeric" class="qty-input ro-input fixed-qty" value="1" readonly title="固定需求量"></td>
+                                            <td><input type="text" inputmode="numeric" class="price-input ro-input" value="0" placeholder="單價"></td>
+                                            <td class="row-total">0 z</td>
+                                        </tr>
+                                        <tr>
+                                            <td>製作費用</td>
+                                            <td style="text-align:center;color:#94a3b8;font-weight:700;">-<input type="text" style="display:none;" class="qty-input ro-input fixed-qty" value="1" readonly></td>
+                                            <td><input type="text" inputmode="numeric" class="price-input ro-input fixed-qty" value="500000" readonly title="固定手續費"></td>
+                                            <td class="row-total">0 z</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div><!-- end .tier-grid -->
+
+
                 </div>
 
                 <!-- [5] 素質模擬器 -->
@@ -890,7 +1050,6 @@
 
         // ---------------------------------------------------------------------
         // 5. 狀態存檔與讀取機制 (Local Storage - 即便刷新也會保留欄位資料與目前分頁)
-        let currentVisibleTiers = 1; // 記錄目前展開了幾階表格
 
         function saveState() {
             // 儲存所有輸入框的純數字值
@@ -903,19 +1062,9 @@
             if (activeLink) {
                 localStorage.setItem('roActiveTab', activeLink.getAttribute('data-page'));
             }
-
-            // 儲存當下展開了幾階動態表格
-            localStorage.setItem('roVisibleTiers', currentVisibleTiers.toString());
         }
 
         function loadState() {
-            // 0. 讀取並恢復動態階層表格數量
-            const savedTiers = localStorage.getItem('roVisibleTiers');
-            if (savedTiers) {
-                updateTierVisibility(parseInt(savedTiers, 10) || 1);
-            } else {
-                updateTierVisibility(1);
-            }
 
             // 1. 先讀取已經輸入好的數值陣列並塞回輸入框中
             // (必須先執行這步，否則下方切換分頁時觸發的 saveState() 會把預設的 0 存進去覆蓋掉原有資料)
@@ -993,70 +1142,6 @@
         }
 
         // ---------------------------------------------------------------------
-        // 5.1 動態顯示升階表格邏輯
-        const btnAddTier = document.getElementById('btn-add-tier');
-        const btnRemoveTier = document.getElementById('btn-remove-tier');
-        const tierSections = document.querySelectorAll('.tier-section');
-
-        function updateTierVisibility(visibleCount) {
-            currentVisibleTiers = visibleCount;
-            // 控制每個分階表格區塊的顯示/隱藏
-            tierSections.forEach((section, index) => {
-                if (index < currentVisibleTiers) {
-                    section.style.display = 'flex'; // section-layout 使用了 flex 排版
-                } else {
-                    section.style.display = 'none';
-                    // 確保將隱藏區塊的數值歸零，以免重新載入或匯出時夾雜殘留數字
-                    section.querySelectorAll('.ro-input').forEach(input => {
-                        input.value = '0';
-                    });
-                    const grandTotalEl = section.querySelector('.table-grand-total') || section.querySelector('.crafting-price');
-                    if (grandTotalEl) grandTotalEl.textContent = '0 z';
-                    section.querySelectorAll('.row-total').forEach(rt => rt.textContent = '0 z');
-                    section.querySelectorAll('.ro-tier-data').forEach(input => input.value = '0');
-                    const radios = section.querySelectorAll('.ro-tier-radio');
-                    if (radios.length > 0 && radios.length >= 2) { radios[0].checked = true; radios[1].checked = false; }
-                }
-            });
-
-            // 控制新增按鈕 (到達 A階, 共4個時隱藏)
-            if (btnAddTier) {
-                if (currentVisibleTiers >= tierSections.length) {
-                    btnAddTier.style.display = 'none';
-                } else {
-                    btnAddTier.style.display = 'inline-flex';
-                }
-            }
-
-            // 控制移除按鈕 (超過 1 階時才顯示，只能自底端開始移除)
-            if (btnRemoveTier) {
-                if (currentVisibleTiers > 1) {
-                    btnRemoveTier.style.display = 'inline-flex';
-                } else {
-                    btnRemoveTier.style.display = 'none';
-                }
-            }
-        }
-
-        // 綁定「新增按鈕」的點擊事件
-        if (btnAddTier) {
-            btnAddTier.addEventListener('click', () => {
-                if (currentVisibleTiers < tierSections.length) {
-                    updateTierVisibility(currentVisibleTiers + 1);
-                    saveState(); // 馬上存檔，將開啟的層級記憶下來
-                }
-            });
-        }
-
-        // 綁定「移除按鈕」的點擊事件
-        if (btnRemoveTier) {
-            btnRemoveTier.addEventListener('click', () => {
-                if (currentVisibleTiers > 1) {
-                    updateTierVisibility(currentVisibleTiers - 1);
-                    saveState(); // 馬上存檔，覆寫掉被清空的隱藏區塊
-                }
-            });
-        }
 
         // ---------------------------------------------------------------------
         // 6. JSON 匯出與匯入功能

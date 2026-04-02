@@ -171,7 +171,7 @@ body {
     font-size: 14px;
     font-weight: 500;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     /* 放寬以容納左邊文字與右邊表格的雙欄排版 */
     position: relative;
     z-index: 20;
@@ -398,6 +398,31 @@ body {
     color: var(--text-white);
 }
 
+/* 各階段表格 thead 使用對應主色的深色版，與卡片 header 呼應 */
+.tier-card-1 .ro-table thead { background: linear-gradient(135deg, #14316b 0%, #1e5ab8 100%); }
+.tier-card-2 .ro-table thead { background: linear-gradient(135deg, #5e3e06 0%, #92610a 100%); }
+.tier-card-3 .ro-table thead { background: linear-gradient(135deg, #35126b 0%, #5b21b6 100%); }
+.tier-card-4 .ro-table thead { background: linear-gradient(135deg, #6e2c09 0%, #b84b10 100%); }
+
+/* ── 灰色系預設卡片 ─────────────────────────────── */
+/* 共用 header：深石板灰（作為 fallback） */
+.tier-card-dark .tier-card-header {
+    background: linear-gradient(135deg, #2d3142 0%, #4a5068 100%);
+}
+
+/* 四張灰卡各有一點色調差異（冷灰、藍灰、純灰、暖灰） */
+.tier-card-d1 .tier-card-header { background: linear-gradient(135deg, #2b3050 0%, #475070 100%); }
+.tier-card-d2 .tier-card-header { background: linear-gradient(135deg, #263040 0%, #40535e 100%); }
+.tier-card-d3 .tier-card-header { background: linear-gradient(135deg, #2e2e38 0%, #4e4e5c 100%); }
+.tier-card-d4 .tier-card-header { background: linear-gradient(135deg, #322e2a 0%, #5a5248 100%); }
+
+/* 灰卡 table thead：中灰石板 */
+.tier-card-dark .ro-table thead {
+    background: linear-gradient(135deg, #363a48 0%, #555a6e 100%);
+}
+
+
+
 .ro-table th {
     padding: 16px 20px;
     font-size: 16px;
@@ -459,41 +484,7 @@ body {
     box-shadow: 0 0 0 3px rgba(27, 92, 184, 0.15);
 }
 
-/* 動態新增/移除階段按鈕容器 */
-.add-tier-container {
-    text-align: center;
-    margin-top: 24px;
-    /* 調近一點 */
-    padding-bottom: 30px;
-}
 
-.ro-btn-add {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background-color: #ffffff;
-    color: var(--logo-color);
-    border: 2px dashed #cbd5e1;
-    padding: 14px 28px;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 12px rgba(27, 92, 184, 0.05);
-}
-
-.ro-btn-add:hover {
-    background-color: #f1f5f9;
-    border-color: var(--logo-color);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(27, 92, 184, 0.15);
-}
-
-.ro-btn-add:active {
-    transform: translateY(1px);
-}
 
 /* 動態移除階段按鈕 */
 .ro-btn-remove {
@@ -766,6 +757,11 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
 }
 
+/* tier-grid 下方緊接著的說明區塊，補上上方間距 */
+.tier-grid + .rules-panel {
+    margin-top: 32px;
+}
+
 .rules-panel h3 {
     margin-top: 0;
     color: #0f172a;
@@ -926,6 +922,208 @@ body {
 
 @media (max-width: 768px) {
     .stats-panels-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== 材料成本 - 升階 2×2 卡片網格 ===== */
+.tier-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    width: 100%;
+}
+
+.tier-card {
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(27, 92, 184, 0.09);
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tier-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(27, 92, 184, 0.14);
+}
+
+/* 各階段彩色 Header */
+.tier-card-header {
+    padding: 14px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    color: #ffffff;
+}
+
+.tier-card-1 .tier-card-header { background: linear-gradient(135deg, #1e5ab8 0%, #3682de 100%); }
+.tier-card-2 .tier-card-header { background: linear-gradient(135deg, #92610a 0%, #d4930c 100%); }
+.tier-card-3 .tier-card-header { background: linear-gradient(135deg, #5b21b6 0%, #9061ea 100%); }
+.tier-card-4 .tier-card-header { background: linear-gradient(135deg, #b84b10 0%, #ea7c30 100%); }
+
+.tier-from-to {
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.tier-gem-name {
+    font-size: 12px;
+    opacity: 0.88;
+    font-weight: 500;
+}
+
+/* tier-card body：覆寫 .table-container 行為，保留 JS 相容性 */
+.tier-card .table-container {
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    margin-bottom: 0;
+    background: transparent;
+    padding: 12px 12px 14px;
+    flex: unset;
+    overflow: visible;  /* 解除 hidden，避免內容被截斷 */
+}
+
+/* tier-summary-panel：橫排 = 左選項區 + 右物品圖片 */
+.tier-card .tier-summary-panel {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+}
+
+/* 左側選項區：合成/分隣符/市價直排 */
+.tier-price-options {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+}
+
+/* 右側：RO 物品截圖正方形佔位 */
+.tier-gem-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    border: 2px dashed #c7d4e8;
+    background: linear-gradient(135deg, #f0f4fb 0%, #e8eef8 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+}
+
+.tier-gem-img:hover {
+    border-color: #7ba7d9;
+    transform: scale(1.05);
+}
+
+.tier-gem-img > span {
+    font-size: 22px;
+    opacity: 0.4;
+    user-select: none;
+    pointer-events: none;
+}
+
+.tier-gem-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.tier-card .price-separator {
+    align-self: center;
+    font-size: 11px;
+    padding: 0;
+}
+
+.tier-card .option-value.crafting-price {
+    font-size: 13px;
+}
+
+.tier-card .finished-price-input {
+    width: 84px;
+    font-size: 12px;
+    padding: 4px 6px;
+}
+
+/* 表格：固定欄寬，輸入時不會擐寬卡片 */
+.tier-card .ro-table {
+    table-layout: fixed;
+}
+
+/* 材料名稱欄 28%：不換行、置中 */
+.tier-card .ro-table th:nth-child(1),
+.tier-card .ro-table td:nth-child(1) {
+    width: 28%;
+    white-space: nowrap;
+    text-align: center;
+}
+
+/* 數量欄 10%：對齊、縮最小（數量都是個位數） */
+.tier-card .ro-table th:nth-child(2),
+.tier-card .ro-table td:nth-child(2) {
+    width: 10%;
+    text-align: center;
+}
+
+/* 單價欄 30%：容納輸入框 */
+.tier-card .ro-table th:nth-child(3),
+.tier-card .ro-table td:nth-child(3) {
+    width: 30%;
+    text-align: center;
+}
+
+/* 總價欄 32%：不換行，靠右，小字体容納 7 位數+z */
+.tier-card .ro-table th:nth-child(4),
+.tier-card .ro-table td:nth-child(4) {
+    width: 32%;
+    white-space: nowrap;
+    text-align: right;
+    padding-right: 10px;
+    font-size: 11.5px;
+}
+
+.tier-card .ro-table th {
+    padding: 9px 7px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+
+.tier-card .ro-table td {
+    padding: 9px 7px;
+    font-size: 13px;
+}
+
+/* 輸入框：填滿固定欄寬，不再自行擐寬表格 */
+.tier-card .ro-table .ro-input {
+    width: 100%;
+    max-width: none;
+    padding: 4px 3px;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* 響應式：1100px 以下改兩欄，600px 以下改單欄 */
+@media (max-width: 1100px) {
+    .tier-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .tier-grid {
         grid-template-columns: 1fr;
     }
 }
